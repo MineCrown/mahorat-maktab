@@ -390,6 +390,18 @@ button {
   background: var(--fon-ikkinchi);
   color: var(--matn);
 }
+.yorqin-tugma:hover, 
+.yorqin-tugma:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--grad-2); }
+}
+.toq-tugma:hover, .xabar-tugma:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 
 .xabar-tugma {
   border: 1px solid rgba(224, 96, 32, 0.3);
@@ -1318,7 +1330,7 @@ li a:hover {
 }
 
 .oyoq-ustun img {
-  width: 120px;
+  width: 150px;
   display: flex;
 }
 
@@ -1849,9 +1861,12 @@ html[data-mavzu='tungi'] .slayder-nuqta {
   }
 }
 
-/* ===== 2026-04 final cleanup ===== */
+
 body {
   overflow-x: hidden;
+}
+.foto-galereya-slider, .rasmli-karta{
+  z-index: 999;
 }
 
 .bolim,
@@ -3434,5 +3449,492 @@ html[data-mavzu='tungi'] .filial-xarita {
   .aloqa-sahifa .savol-karta {
     min-height: 0;
     padding: 22px 20px;
+  }
+}
+
+
+/* ===== ultra-wide responsive qo'shimcha: bitta css ichida ===== */
+@media (min-width: 1800px) {
+  .konteyner {
+    width: min(1760px, calc(100% - 88px));
+  }
+
+  .yuqori-qism {
+    min-height: 96px;
+  }
+
+  .logo-qismi img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .havolalar {
+    gap: 10px;
+  }
+
+  .havolalar li {
+    min-width: 122px;
+    height: 50px;
+  }
+
+  .havolalar li.uzun {
+    min-width: 174px;
+  }
+
+  .havolalar a {
+    font-size: 1.02rem;
+    padding: 0 20px;
+  }
+
+  .mavzu-tugma {
+    width: 52px;
+    height: 52px;
+  }
+
+  .aloqa-tugma {
+    width: 206px;
+    height: 54px;
+  }
+
+  .qahramon {
+    padding: 72px 0 42px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 34px;
+  }
+
+  .qahramon h1 {
+    width: min(860px, 100%);
+    font-size: clamp(3.3rem, 3.4vw, 5rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.14rem;
+  }
+
+  .tugmalar-qatori {
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .toq-tugma,
+  .yorqin-tugma,
+  .xabar-tugma {
+    min-width: 206px;
+    height: 56px;
+    padding: 0 24px;
+  }
+
+  .qisqa-statlar {
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .stat-karta {
+    padding: 22px 22px 20px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.15rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 660px;
+    border-radius: 34px;
+  }
+
+  .ustma-karta {
+    padding: 18px 20px;
+  }
+
+  .ustma-karta strong {
+    font-size: 1.1rem;
+  }
+
+  .ustma-karta span {
+    font-size: 0.98rem;
+  }
+
+  .bolim {
+    padding: 54px 0;
+  }
+
+  .bolim-boshi {
+    margin-bottom: 28px;
+    gap: 24px;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(2.35rem, 2.35vw, 3.45rem);
+  }
+
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .filial-panjarasi {
+    gap: 22px;
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 28px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.24rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 260px;
+  }
+
+  .galereya-karta img {
+    height: 320px;
+  }
+
+  .ichki-qahramon {
+    padding: 64px 0 24px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 520px;
+    border-radius: 32px;
+  }
+
+  .filial-karta {
+    padding: 22px;
+    border-radius: 34px;
+  }
+
+  .filial-karta p {
+    font-size: 1.06rem;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 400px;
+  }
+
+  .oyoq-ichki {
+    padding: 42px 0 26px;
+  }
+
+  .oyoq-ustun strong {
+    font-size: 1.12rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .konteyner {
+    width: min(2080px, calc(100% - 110px));
+  }
+
+  .yuqori-qism {
+    min-height: 104px;
+  }
+
+  .logo-qismi img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .havolalar li {
+    min-width: 132px;
+    height: 54px;
+  }
+
+  .havolalar li.uzun {
+    min-width: 188px;
+  }
+
+  .havolalar a {
+    font-size: 1.08rem;
+    padding: 0 24px;
+  }
+
+  .mavzu-tugma {
+    width: 56px;
+    height: 56px;
+  }
+
+  .aloqa-tugma {
+    width: 224px;
+    height: 58px;
+  }
+
+  .qahramon {
+    padding: 84px 0 48px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 42px;
+  }
+
+  .qahramon h1 {
+    width: min(980px, 100%);
+    font-size: clamp(3.9rem, 3.3vw, 5.9rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.2rem;
+  }
+
+  .toq-tugma,
+  .yorqin-tugma,
+  .xabar-tugma {
+    min-width: 220px;
+    height: 60px;
+    font-size: 1.02rem;
+  }
+
+  .stat-karta {
+    padding: 24px 24px 22px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.35rem;
+  }
+
+  .stat-karta span {
+    font-size: 1rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 760px;
+    border-radius: 38px;
+  }
+
+  .ustma-karta {
+    padding: 20px 22px;
+    border-radius: 22px;
+  }
+
+  .bolim {
+    padding: 62px 0;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(2.6rem, 2.2vw, 3.8rem);
+  }
+
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .filial-panjarasi {
+    gap: 26px;
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 32px;
+    border-radius: 28px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.32rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 290px;
+  }
+
+  .galereya-karta img {
+    height: 360px;
+  }
+
+  .ichki-qahramon {
+    padding: 74px 0 28px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 600px;
+    border-radius: 36px;
+  }
+
+  .filial-karta {
+    padding: 26px;
+    border-radius: 36px;
+  }
+
+  .filial-karta p {
+    max-width: 64ch;
+    font-size: 1.1rem;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 460px;
+  }
+
+  .oyoq-ichki {
+    padding: 48px 0 30px;
+  }
+}
+
+@media (min-width: 3600px) {
+  .konteyner {
+    width: min(2920px, calc(100% - 160px));
+  }
+
+  .qahramon {
+    padding: 104px 0 60px;
+  }
+
+  .qahramon h1 {
+    width: min(1180px, 100%);
+    font-size: clamp(4.8rem, 3.1vw, 7rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.28rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 940px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.7rem;
+  }
+
+  .bolim {
+    padding: 74px 0;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(3rem, 2vw, 4.4rem);
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 38px;
+    border-radius: 32px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.5rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 360px;
+  }
+
+  .galereya-karta img {
+    height: 430px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 760px;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 600px;
   }
 }
