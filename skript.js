@@ -6,8 +6,14 @@ const mavzuTugma = document.querySelector('.mavzu-tugma');
 const yuklanishEkrani = document.querySelector('.yuklanish-ekrani');
 const yuklanishIchi = document.querySelector('.yuklanish-ichki');
 const sahifaBoshi = document.querySelector('.sahifa-boshi');
+const yuklanishBirMarta = sessionStorage.getItem('mahorat_loader_shown') === '1';
 
-body?.classList.add('sahifa-yuklanmoqda');
+if (yuklanishBirMarta) {
+  yuklanishEkrani?.classList.add('yashirildi');
+  body?.classList.add('sahifa-tayyor');
+} else {
+  body?.classList.add('sahifa-yuklanmoqda');
+}
 
 const saqlanganMavzu = localStorage.getItem('mavzu');
 if (saqlanganMavzu === 'tungi') {
@@ -45,6 +51,13 @@ let engKamKutilishTugadi = false;
 let yuklanishYopildi = false;
 
 function yuklanishFoiziniYurgizish() {
+  if (yuklanishBirMarta) {
+    yuklandi = true;
+    engKamKutilishTugadi = true;
+    yuklanishniYakunlash();
+    return;
+  }
+
   const foizElement = document.querySelector('.yuklanish-foiz');
   if (!foizElement) {
     engKamKutilishTugadi = true;
@@ -52,7 +65,7 @@ function yuklanishFoiziniYurgizish() {
   }
 
   const boshlanganVaqt = performance.now();
-  const davomiylik = 420;
+  const davomiylik = 2000;
 
   function formatFoiz(qiymat) {
     return `${Math.min(100, Math.round(qiymat))}%`;
@@ -81,6 +94,7 @@ function yuklanishniYakunlash() {
   yuklanishEkrani.classList.add('yashirildi');
   body?.classList.remove('sahifa-yuklanmoqda');
   body?.classList.add('sahifa-tayyor');
+  sessionStorage.setItem('mahorat_loader_shown', '1');
 }
 
 function sonniFormatlash(raqam, aslMatn) {
@@ -221,8 +235,10 @@ function boshQismHolatiniYangilash() {
 }
 
 mavzuBelgisiYangilash();
-yuklanishQismlariniTayyorlash();
-yuklanishFoiziniYurgizish();
+if (!yuklanishBirMarta) {
+  yuklanishQismlariniTayyorlash();
+  yuklanishFoiziniYurgizish();
+}
 koRinishAnimatsiyasiniYoqish();
 sonlarniJonlantirish();
 qahramonParallaksiniYoqish();
@@ -266,10 +282,13 @@ window.addEventListener('load', () => {
   yuklandi = true;
   yuklanishniYakunlash();
 });
-setTimeout(() => {
-  yuklandi = true;
-  yuklanishniYakunlash();
-}, 700);
+
+if (!yuklanishBirMarta) {
+  setTimeout(() => {
+    yuklandi = true;
+    yuklanishniYakunlash();
+  }, 2400);
+}
 
 
 function sliderlarniYoqish() {
