@@ -1867,7 +1867,7 @@ body {
   overflow-x: hidden;
 }
 .foto-galereya-slider, .rasmli-karta{
-  z-index: 999;
+  z-index: 5;
 }
 
 .bolim,
