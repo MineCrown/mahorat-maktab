@@ -38,6 +38,7 @@ html[data-mavzu='tungi'] {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 html {
@@ -4329,5 +4330,75 @@ html[data-mavzu='tungi'] .filial-xarita {
   .aloqa-tugma {
     width: 150px;
     flex: 0 0 150px;
+  }
+}
+
+/* ===== 2026-04-16 responsive edge padding fix ===== */
+:root {
+  --sahifa-yon-padding: clamp(18px, 2.2vw, 40px);
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+.konteyner {
+  width: min(1460px, calc(100% - (var(--sahifa-yon-padding) * 2))) !important;
+}
+
+.qahramon,
+.ichki-qahramon,
+.bolim,
+.oyoq {
+  overflow-x: clip;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --sahifa-yon-padding: 24px;
+  }
+}
+
+@media (max-width: 840px) {
+  :root {
+    --sahifa-yon-padding: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --sahifa-yon-padding: 14px;
+  }
+
+  .bolim,
+  .qahramon,
+  .ichki-qahramon {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .oddiy-karta,
+  .ustun-karta,
+  .yangilik-karta .oddiy-karta,
+  .aloqa-karta,
+  .qabul-karta,
+  .savol-karta,
+  .dastur-karta,
+  .jamoa-karta,
+  .tarix-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .foydali-karta,
+  .filial-karta {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mazmun-slidery,
+  .filial-karta__ust,
+  .foto-katta-matn {
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
