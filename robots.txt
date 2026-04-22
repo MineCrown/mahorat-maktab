@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahorat-maktabi.vercel.app/sitemap.xml

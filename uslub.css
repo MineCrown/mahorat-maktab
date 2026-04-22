@@ -1,0 +1,5771 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+
+:root {
+  --fon: #fffaf5;
+  --fon-ikkinchi: #ffffff;
+  --fon-uchinchi: #fff2e8;
+  --matn: #0f172a;
+  --matn-xira: #5b6472;
+  --chiziq: rgba(224, 96, 32, 0.14);
+  --soya: 0 16px 40px rgba(15, 23, 42, 0.07);
+  --asosiy: #e06020;
+  --asosiy-toq: #bf4f18;
+  --asosiy-yumshoq: rgba(224, 96, 32, 0.10);
+  --kartochka: #ffffff;
+  --grad-1: #ff6253;
+  --grad-2: #ff8a2b;
+  --grad-3: #ffba0c;
+}
+
+html[data-mavzu='tungi'] {
+  --fon: #0f1117;
+  --fon-ikkinchi: #161a23;
+  --fon-uchinchi: #1c2330;
+  --matn: #f8fafc;
+  --matn-xira: #b4bfd1;
+  --chiziq: rgba(255, 255, 255, 0.08);
+  --soya: 0 18px 44px rgba(0, 0, 0, 0.33);
+  --asosiy: #ff8a3d;
+  --asosiy-toq: #ffb173;
+  --asosiy-yumshoq: rgba(255, 138, 61, 0.14);
+  --kartochka: #171d28;
+  --grad-1: #ff7a59;
+  --grad-2: #ff9b42;
+  --grad-3: #ffc55e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--fon) 0%, var(--fon-ikkinchi) 100%);
+  color: var(--matn);
+  line-height: 1.65;
+}
+
+.tepaga-tugma {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--asosiy) 24%, var(--chiziq));
+  background: color-mix(in srgb, var(--kartochka) 90%, transparent);
+  color: var(--asosiy);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.16);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 4200;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 18px, 0) scale(0.92);
+  transition: opacity .28s ease, transform .32s cubic-bezier(.22, 1, .36, 1), background-color .25s ease, border-color .25s ease, color .25s ease, box-shadow .25s ease, visibility .28s ease;
+}
+
+.tepaga-tugma .tepaga-tugma-ikon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.tepaga-tugma.korinadi {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.tepaga-tugma:hover {
+  transform: translate3d(0, -3px, 0) scale(1.02);
+  border-color: color-mix(in srgb, var(--asosiy) 44%, var(--chiziq));
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 62%, var(--kartochka));
+  box-shadow: 0 24px 46px rgba(15, 23, 42, 0.2);
+}
+
+.tepaga-tugma:active {
+  transform: translate3d(0, 0, 0) scale(0.98);
+}
+
+.tepaga-tugma:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--asosiy) 18%, transparent), 0 18px 42px rgba(15, 23, 42, 0.16);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+
+.konteyner {
+  width: min(1460px, calc(100% - 12px));
+  margin: 0 auto;
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+}
+
+.gmap_canvas iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mapouter a {
+  display: block;
+  font-size: 0.85em;
+  text-align: center;
+  padding: 5px 0;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+.gme-generated-link {
+  display: none !important;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+
+}
+
+
+.sahifa-boshi {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+  background: color-mix(in srgb, var(--fon-ikkinchi) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(224, 96, 32, 0.07);
+}
+
+.texth2 {
+  width: 100%;
+}
+
+.maplar h1 {
+  margin-left: 240px;
+}
+
+.h1loc {
+  display: flex;
+}
+
+
+.yuqori-qism {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+}
+
+.sayyoh-nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.logo-qismi {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 86px;
+}
+
+.logo-qismi img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.havolalar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.havolalar li {
+  list-style: none;
+  width: auto;
+  min-width: 108px;
+  height: 46px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.havolalar li.faol {
+  background: var(--asosiy-yumshoq);
+}
+
+.havolalar li.uzun {
+  min-width: 158px;
+}
+
+.havolalar a {
+  width: 100%;
+  height: 100%;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--matn-xira);
+  position: relative;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.havolalar a:hover,
+.havolalar li.faol a {
+  color: var(--matn);
+}
+
+.havolalar a::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 7px;
+  height: 2px;
+  background: var(--asosiy);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .24s ease;
+}
+
+.havolalar li:hover a::after,
+.havolalar li.faol a::after {
+  transform: scaleX(1);
+}
+
+.ong-amallar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  min-width: 260px;
+}
+
+.mavzu-tugma {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid var(--chiziq);
+  background: var(--fon-ikkinchi);
+  color: var(--matn);
+  box-shadow: var(--soya);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: transform .25s ease, border-color .25s ease, background-color .25s ease;
+}
+
+.mavzu-tugma:hover,
+.aloqa-tugma:hover,
+.toq-tugma:hover,
+.yorqin-tugma:hover,
+.xabar-tugma:hover {
+  transform: translateY(-2px);
+}
+
+.aloqa-tugma {
+  width: 184px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(224, 96, 32, 0.55);
+  color: var(--asosiy);
+  background: transparent;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.aloqa-tugma:hover {
+  background: var(--asosiy-yumshoq);
+  border-color: rgba(224, 96, 32, 0.85);
+  color: var(--matn);
+}
+
+.menu-tugma {
+  width: 46px;
+  height: 46px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+
+.menu-tugma span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--asosiy);
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+.menu-tugma.faol span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-tugma.faol span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-tugma.faol span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.asosiy-qism {
+  overflow: clip;
+}
+
+.qahramon {
+  padding: 56px 0 32px;
+}
+
+.qahramon-panjarasi {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.qahramon-matn {
+  padding: 6px 0 6px 8px;
+  border-left: 3px dashed var(--grad-1);
+}
+
+.qahramon-badge,
+.sarlavha-belgisi {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--chiziq);
+  background: var(--fon-ikkinchi);
+  color: var(--matn-xira);
+  box-shadow: var(--soya);
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+}
+
+.qahramon h1 {
+  width: min(720px, 100%);
+  font-size: clamp(2.4rem, 4vw, 4.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(45deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-1));
+}
+
+.qahramon p {
+  width: min(630px, 100%);
+  color: var(--matn-xira);
+  font-size: 1.08rem;
+  margin-top: 18px;
+}
+
+.tugmalar-qatori {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.toq-tugma,
+.yorqin-tugma,
+.xabar-tugma {
+  min-width: 190px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+}
+
+.toq-tugma {
+  background: linear-gradient(135deg, var(--grad-1), var(--grad-2));
+  color: white;
+  box-shadow: 0 18px 34px rgba(224, 96, 32, 0.2);
+}
+
+.yorqin-tugma {
+  border: 1px solid var(--chiziq);
+  background: var(--fon-ikkinchi);
+  color: var(--matn);
+}
+.yorqin-tugma:hover, 
+.yorqin-tugma:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 var(--grad-2); }
+}
+.toq-tugma:hover, .xabar-tugma:hover{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.xabar-tugma {
+  border: 1px solid rgba(224, 96, 32, 0.3);
+  background: var(--asosiy-yumshoq);
+  color: var(--asosiy-toq);
+}
+
+.qisqa-statlar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.stat-karta,
+.oddiy-karta,
+.yangilik-karta,
+.ustun-karta,
+.bosqich-karta,
+.fikr-karta,
+.aloqa-karta,
+.foydali-karta,
+.galereya-karta,
+.qadam-karta,
+.savol-karta,
+.dastur-karta,
+.tarix-karta,
+.jamoa-karta,
+.qabul-karta {
+  background: var(--kartochka);
+  border: 1px solid var(--chiziq);
+  border-radius: 24px;
+  box-shadow: var(--soya);
+}
+
+.stat-karta {
+  padding: 18px 18px 16px;
+}
+
+.stat-karta strong {
+  display: block;
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.stat-karta span {
+  color: var(--matn-xira);
+  font-size: 0.95rem;
+}
+
+.qahramon-rasm {
+  position: relative;
+}
+
+.qahramon-rasm .asosiy-rasm {
+  border-radius: 30px;
+  min-height: 560px;
+  object-fit: cover;
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.16);
+}
+
+.ustma-karta {
+  position: absolute;
+  background: color-mix(in srgb, var(--kartochka) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--chiziq);
+  border-radius: 20px;
+  box-shadow: var(--soya);
+  padding: 16px 18px;
+}
+
+.ustma-karta strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.ustma-karta span {
+  color: var(--matn-xira);
+  font-size: 0.92rem;
+}
+
+.ustma-bir {
+  top: 24px;
+  left: -18px;
+}
+
+.ustma-ikki {
+  right: -12px;
+  bottom: 26px;
+}
+
+.bolim {
+  padding: 38px 0;
+}
+
+.bolim-boshi {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.bolim-boshi h2,
+.ichki-qahramon h1 {
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.bolim-boshi p,
+.ichki-qahramon p,
+.karta-izoh,
+.oddiy-karta p,
+.yangilik-karta p,
+.ustun-karta p,
+.bosqich-karta p,
+.fikr-karta p,
+.aloqa-karta p,
+.foydali-karta p,
+.qadam-karta p,
+.savol-karta p,
+.dastur-karta p,
+.tarix-karta p,
+.jamoa-karta p,
+.qabul-karta p {
+  color: var(--matn-xira);
+}
+
+.uchlik-panjarasi,
+.tortlik-panjarasi,
+.ikkilik-panjarasi,
+.yangilik-panjarasi,
+.galereya-panjarasi,
+.dastur-panjarasi,
+.jamoa-panjarasi,
+.savol-panjarasi,
+.aloqa-panjarasi,
+.qadam-panjarasi,
+.bosqich-panjarasi {
+  display: grid;
+  gap: 18px;
+}
+
+.uchlik-panjarasi,
+.yangilik-panjarasi,
+.jamoa-panjarasi,
+.galereya-panjarasi {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tortlik-panjarasi {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ikkilik-panjarasi,
+.aloqa-panjarasi,
+.qadam-panjarasi,
+.bosqich-panjarasi,
+.dastur-panjarasi,
+.savol-panjarasi {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.oddiy-karta,
+.yangilik-karta,
+.ustun-karta,
+.bosqich-karta,
+.fikr-karta,
+.aloqa-karta,
+.foydali-karta,
+.qadam-karta,
+.savol-karta,
+.dastur-karta,
+.tarix-karta,
+.jamoa-karta,
+.qabul-karta {
+  padding: 24px;
+}
+
+.oddiy-karta strong,
+.yangilik-karta strong,
+.ustun-karta strong,
+.bosqich-karta strong,
+.fikr-karta strong,
+.aloqa-karta strong,
+.foydali-karta strong,
+.qadam-karta strong,
+.savol-karta strong,
+.dastur-karta strong,
+.tarix-karta strong,
+.jamoa-karta strong,
+.qabul-karta strong,
+.galereya-sarlavha {
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+.rasmli-karta {
+  overflow: hidden;
+}
+
+.rasmli-karta img,
+.galereya-karta img,
+.yangilik-karta img,
+.ichki-qahramon-rasm img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.rasmli-karta img,
+.yangilik-karta img {
+  height: 220px;
+}
+
+.galereya-karta {
+  overflow: hidden;
+  position: relative;
+}
+
+.galereya-karta img {
+  height: 260px;
+  transition: transform .35s ease;
+}
+
+.galereya-karta:hover img,
+.yangilik-karta:hover img,
+.rasmli-karta:hover img {
+  transform: scale(1.04);
+}
+
+.galereya-ustma {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--kartochka) 84%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--chiziq);
+}
+
+.ichki-qahramon {
+  padding: 48px 0 18px;
+}
+
+.ichki-qahramon-panjarasi {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.ichki-qahramon-matn {
+  padding-right: 0;
+}
+
+.ichki-qahramon-rasm img {
+  border-radius: 28px;
+  min-height: 420px;
+}
+
+.qator-matn {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.qator-chip {
+  padding: 9px 14px;
+  border: 1px solid var(--chiziq);
+  border-radius: 999px;
+  background: var(--fon-ikkinchi);
+  color: var(--matn-xira);
+}
+
+.jadval-qobiq {
+  overflow-x: auto;
+}
+
+.jadval {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  background: var(--kartochka);
+  border: 1px solid var(--chiziq);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--soya);
+}
+
+.jadval th,
+.jadval td {
+  text-align: left;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--chiziq);
+}
+
+.jadval th {
+  background: var(--fon-uchinchi);
+  font-size: 0.96rem;
+}
+
+.jadval tr:last-child td {
+  border-bottom: none;
+}
+
+.oyoq {
+  margin-top: 40px;
+  border-top: 1px solid var(--chiziq);
+  background: color-mix(in srgb, var(--fon-uchinchi) 75%, transparent);
+}
+
+.oyoq-ichki {
+  padding: 34px 0 20px;
+  height: 410px;
+}
+
+.oyoq-panjarasi {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 0.8fr 1fr;
+  gap: 18px;
+}
+
+.oyoq-ustun strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+}
+
+.oyoq-ustun p,
+.oyoq-ustun li,
+.oyoq-pastki {
+  color: var(--matn-xira);
+}
+
+.oyoq-ustun ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.oyoq-pastki {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--chiziq);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+@keyframes sekin-kirish {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+[data-kirish] {
+  animation: sekin-kirish .7s ease both;
+}
+
+[data-kirish='1'] {
+  animation-delay: .06s;
+}
+
+[data-kirish='2'] {
+  animation-delay: .12s;
+}
+
+[data-kirish='3'] {
+  animation-delay: .18s;
+}
+
+[data-kirish='4'] {
+  animation-delay: .24s;
+}
+
+@media (max-width: 1080px) {
+  .sayyoh-nav {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+
+  .logo-qismi,
+  .ong-amallar {
+    min-width: auto;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi,
+  .oyoq-panjarasi,
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 840px) {
+  .yuqori-qism {
+    min-height: 84px;
+  }
+
+  .menu-tugma {
+    display: flex;
+    order: 3;
+  }
+
+  .havolalar {
+    width: 100%;
+    order: 4;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease, padding .3s ease;
+  }
+
+  .havolalar.ochiq {
+    max-height: 420px;
+    padding-bottom: 8px;
+  }
+
+  .havolalar li,
+  .havolalar li.uzun {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+  }
+
+  .havolalar a {
+    justify-content: flex-start;
+    padding: 0 16px;
+  }
+
+  .havolalar a::after {
+    left: 16px;
+    right: auto;
+    width: calc(100% - 32px);
+    transform-origin: left;
+  }
+
+  .ong-amallar {
+    margin-left: auto;
+    gap: 10px;
+  }
+
+  .aloqa-tugma {
+    width: auto;
+    padding: 0 18px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi,
+  .oyoq-panjarasi,
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .qisqa-statlar {
+    grid-template-columns: 1fr;
+  }
+
+  .ustma-bir,
+  .ustma-ikki {
+    position: static;
+    margin-top: 14px;
+  }
+
+  .qahramon-matn {
+    padding-left: 8px;
+  }
+
+  .bolim-boshi {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo-qismi img {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+@media (max-width: 560px) {
+  .konteyner {
+    width: min(100% - 10px, 1460px);
+  }
+
+  .qahramon {
+    padding-top: 28px;
+  }
+
+  .qahramon h1,
+  .ichki-qahramon h1,
+  .bolim-boshi h2 {
+    letter-spacing: -0.03em;
+  }
+
+  .tugmalar-qatori,
+  .qator-matn {
+    flex-direction: column;
+  }
+
+  .toq-tugma,
+  .yorqin-tugma,
+  .xabar-tugma,
+  .aloqa-tugma {
+    width: 100%;
+  }
+
+  .logo-matn span {
+    display: none;
+  }
+
+  .mavzu-tugma,
+  .menu-tugma {
+    width: 44px;
+    height: 44px;
+  }
+
+  .ong-amallar {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .tepaga-tugma {
+    right: 14px;
+    bottom: 14px;
+    width: 50px;
+    height: 50px;
+    border-radius: 16px;
+  }
+}
+
+
+body.sahifa-yuklanmoqda {
+  overflow: hidden;
+}
+
+.yuklanish-ekrani {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top, color-mix(in srgb, var(--asosiy) 14%, transparent) 0%, transparent 38%),
+    linear-gradient(180deg, var(--fon) 0%, var(--fon-ikkinchi) 100%);
+  transition: opacity .55s ease, visibility .55s ease;
+}
+
+.yuklanish-ekrani.yashirildi {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.yuklanish-ichki {
+  width: min(430px, calc(100% - 40px));
+  padding: 34px 28px 30px;
+  text-align: center;
+  border-radius: 30px;
+  background: color-mix(in srgb, var(--kartochka) 82%, transparent);
+  border: 1px solid var(--chiziq);
+  box-shadow: var(--soya);
+  backdrop-filter: blur(18px);
+}
+
+.yuklanish-logo {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 16px;
+  object-fit: contain;
+  animation: yuklanish-suzishi 2.1s ease-in-out infinite;
+}
+
+.yuklanish-sarlavha {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.yuklanish-matn {
+  margin-top: 8px;
+  color: var(--matn-xira);
+}
+
+.yuklanish-chiziq {
+  width: 100%;
+  height: 8px;
+  margin-top: 22px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--asosiy) 14%, var(--fon-ikkinchi));
+  overflow: hidden;
+}
+
+.yuklanish-chiziq span {
+  display: block;
+  width: 45%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  animation: yuklanish-oqimi 1.25s ease-in-out infinite;
+}
+
+@keyframes yuklanish-suzishi {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes yuklanish-oqimi {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(260%);
+  }
+}
+
+@keyframes rang-oqimi {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.qahramon h1 {
+  background-size: 220% 220%;
+  animation: rang-oqimi 8s linear infinite alternate;
+}
+
+.ustma-karta,
+.qahramon-badge,
+.stat-karta,
+.oddiy-karta,
+.yangilik-karta,
+.ustun-karta,
+.bosqich-karta,
+.fikr-karta,
+.aloqa-karta,
+.foydali-karta,
+.galereya-karta,
+.qadam-karta,
+.savol-karta,
+.dastur-karta,
+.tarix-karta,
+.jamoa-karta,
+.qabul-karta,
+.jadval,
+.oyoq-ustun {
+  transition: transform .32s ease, box-shadow .32s ease, border-color .32s ease, background-color .32s ease;
+}
+
+.stat-karta:hover,
+.oddiy-karta:hover,
+.yangilik-karta:hover,
+.ustun-karta:hover,
+.bosqich-karta:hover,
+.fikr-karta:hover,
+.aloqa-karta:hover,
+.foydali-karta:hover,
+.galereya-karta:hover,
+.qadam-karta:hover,
+.savol-karta:hover,
+.dastur-karta:hover,
+.tarix-karta:hover,
+.jamoa-karta:hover,
+.qabul-karta:hover,
+.jadval:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--asosiy) 30%, var(--chiziq));
+  box-shadow: 0 22px 54px rgba(15, 23, 42, 0.12);
+}
+
+[data-jonlanish] {
+  opacity: 0;
+  transform: translateY(34px) scale(.985);
+  transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: var(--kechikish, 0ms);
+  will-change: transform, opacity;
+}
+
+[data-jonlanish].korindi {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sahifa-boshi.siljidi {
+  box-shadow: 0 16px 38px rgba(15, 23, 42, 0.08);
+  border-bottom-color: color-mix(in srgb, var(--asosiy) 14%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-jonlanish] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+body.sahifa-tayyor .qahramon-matn,
+body.sahifa-tayyor .ichki-qahramon-matn {
+  animation: bosh-qism-nafasi 1.1s ease both;
+}
+
+.qahramon-rasm,
+.ichki-qahramon-rasm {
+  position: relative;
+  isolation: isolate;
+}
+
+.qahramon-rasm::before,
+.ichki-qahramon-rasm::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 32px;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--fon-ikkinchi) 88%, transparent) 0%, color-mix(in srgb, var(--asosiy) 10%, var(--fon-ikkinchi)) 100%);
+  transform-origin: left center;
+  transition: transform 1.05s cubic-bezier(.22, 1, .36, 1), opacity .55s ease;
+  z-index: 3;
+}
+
+body.sahifa-tayyor .qahramon-rasm::before,
+body.sahifa-tayyor .ichki-qahramon-rasm::before {
+  transform: scaleX(0);
+  opacity: 0;
+}
+
+.qahramon-rasm .asosiy-rasm,
+.ichki-qahramon-rasm img {
+  transition: transform .7s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+.ustma-karta {
+  animation: suzuvchi-karta 5.2s ease-in-out infinite;
+}
+
+.ustma-ikki {
+  animation-delay: .7s;
+}
+
+.yuklanish-ichki::before,
+.yuklanish-ichki::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.yuklanish-ichki::before {
+  width: 120px;
+  height: 120px;
+  background: color-mix(in srgb, var(--asosiy) 10%, transparent);
+  top: -34px;
+  right: -18px;
+  filter: blur(8px);
+}
+
+.yuklanish-ichki::after {
+  width: 84px;
+  height: 84px;
+  background: color-mix(in srgb, var(--grad-3) 16%, transparent);
+  bottom: -18px;
+  left: -12px;
+  filter: blur(10px);
+}
+
+.yuklanish-ichki {
+  position: relative;
+  overflow: hidden;
+}
+
+.yuklanish-foiz {
+  margin-top: 16px;
+  font-size: .96rem;
+  font-weight: 700;
+  color: var(--asosiy);
+  letter-spacing: .08em;
+}
+
+.yuklanish-nuqta-qatori {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.yuklanish-nuqta-qatori span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--asosiy) 72%, white);
+  animation: yuklanish-nuqta 1.1s ease-in-out infinite;
+}
+
+.yuklanish-nuqta-qatori span:nth-child(2) {
+  animation-delay: .14s;
+}
+
+.yuklanish-nuqta-qatori span:nth-child(3) {
+  animation-delay: .28s;
+}
+
+[data-jonlanish] {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate3d(0, 42px, 0) scale(.97);
+  transition:
+    opacity .82s ease,
+    transform .82s cubic-bezier(.22, 1, .36, 1),
+    filter .82s ease;
+  transition-delay: var(--kechikish, 0ms);
+  will-change: transform, opacity, filter;
+}
+
+[data-jonlanish][data-jon-turi='chap'] {
+  transform: translate3d(-54px, 18px, 0) scale(.98);
+}
+
+[data-jonlanish][data-jon-turi='ong'] {
+  transform: translate3d(54px, 18px, 0) scale(.98);
+}
+
+[data-jonlanish][data-jon-turi='kichik'] {
+  transform: translate3d(0, 26px, 0) scale(.94);
+}
+
+[data-jonlanish][data-jon-turi='zoom'] {
+  transform: translate3d(0, 34px, 0) scale(.92);
+}
+
+[data-jonlanish].korindi {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.qahramon-badge,
+.sarlavha-belgisi,
+.qator-chip {
+  position: relative;
+  overflow: hidden;
+}
+
+.qahramon-badge::before,
+.sarlavha-belgisi::before,
+.qator-chip::before,
+.stat-karta::before,
+.oddiy-karta::before,
+.yangilik-karta::before,
+.ustun-karta::before,
+.bosqich-karta::before,
+.fikr-karta::before,
+.aloqa-karta::before,
+.foydali-karta::before,
+.galereya-karta::before,
+.qadam-karta::before,
+.savol-karta::before,
+.dastur-karta::before,
+.tarix-karta::before,
+.jamoa-karta::before,
+.qabul-karta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 10%, color-mix(in srgb, white 38%, transparent) 46%, transparent 82%);
+  transform: translateX(-135%);
+  pointer-events: none;
+}
+
+li a:hover {
+  color: #ff9b42;
+  transition: all ease-in-out 0.2s;
+}
+
+.oyoq-ustun img {
+  width: 170px;
+  display: flex;
+}
+
+
+.oyoq-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.oyoq-flex p {
+  margin: 0;
+}
+
+.stat-karta:hover::before,
+.oddiy-karta:hover::before,
+.yangilik-karta:hover::before,
+.ustun-karta:hover::before,
+.bosqich-karta:hover::before,
+.fikr-karta:hover::before,
+.aloqa-karta:hover::before,
+.foydali-karta:hover::before,
+.galereya-karta:hover::before,
+.qadam-karta:hover::before,
+.savol-karta:hover::before,
+.dastur-karta:hover::before,
+.tarix-karta:hover::before,
+.jamoa-karta:hover::before,
+.qabul-karta:hover::before,
+.qahramon-badge:hover::before,
+.sarlavha-belgisi:hover::before,
+.qator-chip:hover::before {
+  animation: yaltiroq-yurishi 1s ease;
+}
+
+@keyframes bosh-qism-nafasi {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes suzuvchi-karta {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes yuklanish-nuqta {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: .44;
+  }
+
+  50% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+@keyframes yaltiroq-yurishi {
+  from {
+    transform: translateX(-135%);
+  }
+
+  to {
+    transform: translateX(135%);
+  }
+}
+
+@media (max-width: 840px) {
+
+  [data-jonlanish][data-jon-turi='chap'],
+  [data-jonlanish][data-jon-turi='ong'] {
+    transform: translate3d(0, 34px, 0) scale(.97);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ustma-karta,
+  .yuklanish-logo,
+  .yuklanish-chiziq span,
+  .qahramon h1,
+  body.sahifa-tayyor .qahramon-matn,
+  body.sahifa-tayyor .ichki-qahramon-matn {
+    animation: none !important;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img,
+  [data-jonlanish] {
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+
+/* ===== 2026 polish update ===== */
+body {
+  background:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--asosiy) 7%, transparent) 0%, transparent 28%),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--grad-3) 6%, transparent) 0%, transparent 24%),
+    linear-gradient(180deg, var(--fon) 0%, var(--fon-ikkinchi) 100%);
+}
+
+html[data-mavzu='tungi'] body {
+  background:
+    radial-gradient(circle at top left, rgba(255, 138, 61, 0.11) 0%, transparent 24%),
+    radial-gradient(circle at top right, rgba(255, 197, 94, 0.08) 0%, transparent 22%),
+    linear-gradient(180deg, #0b0e14 0%, #111623 54%, #101521 100%);
+}
+
+html[data-mavzu='tungi'] .sahifa-boshi {
+  background: color-mix(in srgb, #0d1118 90%, transparent);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+.yuklanish-ekrani {
+  background:
+    radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--asosiy) 18%, transparent) 0%, transparent 34%),
+    radial-gradient(circle at 20% 100%, color-mix(in srgb, var(--grad-3) 12%, transparent) 0%, transparent 22%),
+    linear-gradient(180deg, color-mix(in srgb, var(--fon) 92%, white) 0%, var(--fon-ikkinchi) 100%);
+}
+
+html[data-mavzu='tungi'] .yuklanish-ekrani {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 138, 61, 0.18) 0%, transparent 28%),
+    radial-gradient(circle at 20% 100%, rgba(255, 197, 94, 0.1) 0%, transparent 20%),
+    linear-gradient(180deg, #0a0d14 0%, #101621 100%);
+}
+
+.yuklanish-ichki {
+  width: min(560px, calc(100% - 34px));
+  padding: 48px 40px 36px;
+  border-radius: 38px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.12);
+}
+
+.yuklanish-logo {
+  width: 126px;
+  height: 126px;
+  margin-bottom: 18px;
+}
+
+.yuklanish-sarlavha {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+}
+
+.yuklanish-matn {
+  margin-top: 10px;
+  font-size: 1.08rem;
+}
+
+.yuklanish-foiz {
+  margin-top: 20px;
+  font-size: 1.32rem;
+  letter-spacing: .04em;
+}
+
+.yuklanish-chiziq {
+  height: 12px;
+  margin-top: 26px;
+}
+
+.yuklanish-nuqta-qatori {
+  margin-top: 20px;
+}
+
+.qisqa-statlar {
+  gap: 16px;
+}
+
+.stat-karta {
+  position: relative;
+  overflow: hidden;
+  min-height: 126px;
+  padding: 22px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--kartochka) 92%, white) 0%, color-mix(in srgb, var(--fon-uchinchi) 70%, white) 100%);
+}
+
+.stat-karta strong {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  margin-bottom: 4px;
+}
+
+.stat-karta::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  opacity: .9;
+}
+
+html[data-mavzu='tungi'] .stat-karta {
+  background:
+    linear-gradient(145deg, rgba(18, 24, 36, 0.96) 0%, rgba(21, 29, 43, 0.92) 100%);
+  border-color: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+}
+
+html[data-mavzu='tungi'] .stat-karta::before {
+  background: linear-gradient(115deg, transparent 12%, rgba(255, 255, 255, .08) 46%, transparent 84%);
+}
+
+html[data-mavzu='tungi'] .oddiy-karta,
+html[data-mavzu='tungi'] .yangilik-karta,
+html[data-mavzu='tungi'] .ustun-karta,
+html[data-mavzu='tungi'] .bosqich-karta,
+html[data-mavzu='tungi'] .fikr-karta,
+html[data-mavzu='tungi'] .aloqa-karta,
+html[data-mavzu='tungi'] .foydali-karta,
+html[data-mavzu='tungi'] .galereya-karta,
+html[data-mavzu='tungi'] .qadam-karta,
+html[data-mavzu='tungi'] .savol-karta,
+html[data-mavzu='tungi'] .dastur-karta,
+html[data-mavzu='tungi'] .tarix-karta,
+html[data-mavzu='tungi'] .jamoa-karta,
+html[data-mavzu='tungi'] .qabul-karta,
+html[data-mavzu='tungi'] .jadval,
+html[data-mavzu='tungi'] .oyoq-ustun,
+html[data-mavzu='tungi'] .ustma-karta {
+  background: linear-gradient(145deg, rgba(18, 24, 36, 0.96) 0%, rgba(22, 29, 43, 0.92) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-mavzu='tungi'] .qator-chip,
+html[data-mavzu='tungi'] .qahramon-badge,
+html[data-mavzu='tungi'] .mavzu-tugma,
+html[data-mavzu='tungi'] .yorqin-tugma {
+  background: rgba(20, 26, 38, 0.88);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.taqdimot-bolim {
+  padding-top: 10px;
+}
+
+.taqdimot-boshi {
+  align-items: flex-end;
+}
+
+.mazmun-slidery {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  border: 1px solid var(--chiziq);
+  background: linear-gradient(145deg, color-mix(in srgb, var(--kartochka) 94%, white) 0%, color-mix(in srgb, var(--fon-uchinchi) 84%, white) 100%);
+  box-shadow: var(--soya);
+  padding: 22px;
+}
+
+.mazmun-slidery::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--asosiy) 45%, transparent) 50%, transparent 100%);
+}
+
+html[data-mavzu='tungi'] .mazmun-slidery {
+  background: linear-gradient(145deg, rgba(15, 21, 33, 0.98) 0%, rgba(19, 27, 42, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+.slayder-yuqori-qator,
+.slayder-pastki-qator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.slayder-yuqori-qator {
+  margin-bottom: 18px;
+}
+
+.slayder-yorliq,
+.slayd-ust-belgi {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--chiziq);
+  background: color-mix(in srgb, var(--fon-ikkinchi) 92%, white);
+  color: var(--matn-xira);
+  font-size: .94rem;
+  font-weight: 600;
+}
+
+html[data-mavzu='tungi'] .slayder-yorliq,
+html[data-mavzu='tungi'] .slayd-ust-belgi {
+  background: rgba(18, 24, 36, 0.92);
+}
+
+.slayder-boshqaruv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slayder-tugma {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--chiziq);
+  background: color-mix(in srgb, var(--fon-ikkinchi) 94%, white);
+  color: var(--matn);
+  box-shadow: var(--soya);
+  transition: transform .25s ease, border-color .25s ease, background-color .25s ease;
+  margin: 10px;
+}
+
+.slayder-tugma:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--asosiy) 44%, var(--chiziq));
+}
+
+html[data-mavzu='tungi'] .slayder-tugma {
+  background: rgba(18, 24, 36, 0.94);
+}
+
+.mazmun-slidery-trek {
+  display: flex;
+  transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+.mazmun-slayd {
+  flex: 0 0 100%;
+  min-width: 100%;
+  min-height: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 6px 4px 4px;
+}
+
+.mazmun-slayd.faol {
+  pointer-events: auto;
+}
+
+.slayd-sarlavha-qismi {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 18px;
+  align-items: end;
+}
+
+.slayd-sarlavha-qismi h3 {
+  margin-top: 14px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.slayd-sarlavha-qismi p,
+.slayder-holat-matni {
+  color: var(--matn-xira);
+}
+
+.baland-uchlik {
+  align-items: stretch;
+}
+
+.baland-uchlik>* {
+  min-height: 100%;
+}
+
+.baland-uchlik .ustun-karta,
+.baland-qadam-panjarasi .qadam-karta {
+  min-height: 230px;
+}
+
+.foto-slayd-panjarasi .galereya-karta img {
+  height: 430px;
+}
+
+.foto-slayd-panjarasi .galereya-karta {
+  min-height: 100%;
+}
+
+.mazmun-slayd .yangilik-karta img {
+  height: 340px;
+}
+
+.mazmun-slayd .yangilik-karta,
+.mazmun-slayd .galereya-karta,
+.mazmun-slayd .ustun-karta,
+.mazmun-slayd .qadam-karta,
+.mazmun-slayd .qabul-karta {
+  height: 100%;
+}
+
+.slayd-qadam-qismi {
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+
+.slayd-chaqiruv-kartasi {
+  padding: 30px 26px;
+  border-radius: 28px;
+}
+
+.slayd-chaqiruv-kartasi strong {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 10px;
+}
+
+.slayder-pastki-qator {
+  margin-top: 22px;
+}
+
+.slayder-nuqtalar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.slayder-nuqta {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--asosiy) 28%, var(--chiziq));
+  background: color-mix(in srgb, var(--fon-uchinchi) 86%, white);
+  transition: transform .25s ease, background-color .25s ease, width .25s ease, border-color .25s ease;
+}
+
+.slayder-nuqta.faol {
+  width: 34px;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+  border-color: transparent;
+}
+
+html[data-mavzu='tungi'] .slayder-nuqta {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 1080px) {
+  .mazmun-slayd {
+    min-height: 640px;
+  }
+
+  .slayd-sarlavha-qismi {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .mazmun-slayd .yangilik-karta img,
+  .foto-slayd-panjarasi .galereya-karta img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 840px) {
+  .mazmun-slidery {
+    padding: 16px;
+    border-radius: 28px;
+  }
+
+  .slayder-yuqori-qator,
+  .slayder-pastki-qator,
+  .taqdimot-boshi {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mazmun-slayd {
+    min-height: auto;
+    gap: 18px;
+  }
+
+  .baland-uchlik .ustun-karta,
+  .baland-qadam-panjarasi .qadam-karta {
+    min-height: 190px;
+  }
+
+  .mazmun-slayd .yangilik-karta img,
+  .foto-slayd-panjarasi .galereya-karta img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 560px) {
+  .yuklanish-ichki {
+    width: min(100% - 20px, 560px);
+    padding: 38px 22px 30px;
+    border-radius: 30px;
+  }
+
+  .yuklanish-logo {
+    width: 102px;
+    height: 102px;
+  }
+
+  .stat-karta {
+    min-height: 116px;
+    padding: 20px 18px 18px;
+  }
+
+  .slayder-tugma {
+    width: 46px;
+    height: 46px;
+  }
+
+  .slayder-holat-matni {
+    font-size: .95rem;
+  }
+}
+
+
+body {
+  overflow-x: hidden;
+}
+.foto-galereya-slider, .rasmli-karta{
+  z-index: 999;
+}
+
+.bolim,
+.mazmun-slidery,
+.mazmun-slayd,
+.slayd-sarlavha-qismi,
+.slayd-panjarasi,
+.foto-galereya-slider,
+.foto-galereya-track,
+.foto-katta-slayd,
+.qahramon-panjarasi,
+.ichki-qahramon-panjarasi {
+  min-width: 0;
+}
+
+.slayd-sarlavha-qismi h3 {
+  font-size: clamp(1.85rem, 2.6vw, 2.8rem);
+}
+
+.slayd-sarlavha-qismi p {
+  max-width: 640px;
+}
+
+html[data-mavzu='tungi'] .oddiy-karta,
+html[data-mavzu='tungi'] .yangilik-karta,
+html[data-mavzu='tungi'] .ustun-karta,
+html[data-mavzu='tungi'] .bosqich-karta,
+html[data-mavzu='tungi'] .fikr-karta,
+html[data-mavzu='tungi'] .aloqa-karta,
+html[data-mavzu='tungi'] .foydali-karta,
+html[data-mavzu='tungi'] .galereya-karta,
+html[data-mavzu='tungi'] .qadam-karta,
+html[data-mavzu='tungi'] .savol-karta,
+html[data-mavzu='tungi'] .dastur-karta,
+html[data-mavzu='tungi'] .tarix-karta,
+html[data-mavzu='tungi'] .jamoa-karta,
+html[data-mavzu='tungi'] .qabul-karta,
+html[data-mavzu='tungi'] .jadval,
+html[data-mavzu='tungi'] .oyoq-ustun,
+html[data-mavzu='tungi'] .ustma-karta {
+  background: rgba(17, 24, 36, 0.94);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.26);
+}
+
+html[data-mavzu='tungi'] .oddiy-karta p,
+html[data-mavzu='tungi'] .ustun-karta p,
+html[data-mavzu='tungi'] .qadam-karta p,
+html[data-mavzu='tungi'] .qabul-karta p,
+html[data-mavzu='tungi'] .slayd-sarlavha-qismi p,
+html[data-mavzu='tungi'] .bolim-boshi p,
+html[data-mavzu='tungi'] .stat-karta span,
+html[data-mavzu='tungi'] .foto-katta-matn p,
+html[data-mavzu='tungi'] .foto-galereya-izoh {
+  color: rgba(226, 232, 240, 0.78);
+}
+
+html[data-mavzu='tungi'] .oddiy-karta strong,
+html[data-mavzu='tungi'] .ustun-karta strong,
+html[data-mavzu='tungi'] .qadam-karta strong,
+html[data-mavzu='tungi'] .qabul-karta strong,
+html[data-mavzu='tungi'] .foto-katta-matn strong,
+html[data-mavzu='tungi'] .bolim-boshi h2,
+html[data-mavzu='tungi'] .slayd-sarlavha-qismi h3 {
+  color: #f8fafc;
+}
+
+html[data-mavzu='tungi'] .mazmun-slidery {
+  background: linear-gradient(180deg, rgba(10, 16, 28, 0.98) 0%, rgba(11, 18, 30, 0.96) 100%);
+}
+
+html[data-mavzu='tungi'] .stat-karta {
+  background: rgba(16, 22, 34, 0.96);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat-karta::after {
+  display: none;
+}
+
+.stat-karta {
+  min-height: 122px;
+  padding: 22px 22px 18px;
+  gap: 4px;
+}
+
+.stat-karta span {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.foto-galereya-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid var(--chiziq);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--kartochka) 95%, white) 0%, color-mix(in srgb, var(--fon-uchinchi) 86%, white) 100%);
+  box-shadow: var(--soya);
+}
+
+html[data-mavzu='tungi'] .foto-galereya-slider {
+  background: linear-gradient(180deg, rgba(15, 22, 34, 0.98) 0%, rgba(17, 24, 36, 0.95) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.foto-galereya-track {
+  display: flex;
+  transition: transform .72s cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+
+.foto-katta-slayd {
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 18px;
+}
+
+.foto-katta-rasm {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--chiziq);
+  background: var(--fon-uchinchi);
+}
+
+.foto-katta-rasm img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.foto-katta-matn {
+  margin-top: 16px;
+  padding: 4px 4px 2px;
+}
+
+.foto-katta-matn strong {
+  display: block;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  margin-bottom: 8px;
+}
+
+.foto-katta-matn p {
+  max-width: 860px;
+  color: var(--matn-xira);
+}
+
+.foto-galereya-pastki {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 18px 18px;
+}
+
+.foto-galereya-izoh {
+  color: var(--matn-xira);
+}
+
+.foto-galereya-boshqaruv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.foto-galereya-nuqtalar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.foto-galereya-nuqta {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--asosiy) 28%, var(--chiziq));
+  background: color-mix(in srgb, var(--fon-uchinchi) 86%, white);
+  transition: transform .25s ease, background-color .25s ease, width .25s ease, border-color .25s ease;
+}
+
+.foto-galereya-nuqta.faol {
+  width: 34px;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2));
+  border-color: transparent;
+}
+
+html[data-mavzu='tungi'] .foto-galereya-nuqta {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.foto-galereya-slider .slayder-tugma {
+  width: 48px;
+  height: 48px;
+}
+
+@media (max-width: 1080px) {
+  .foto-katta-rasm img {
+    height: 400px;
+  }
+}
+
+@media (max-width: 840px) {
+
+  .qisqa-statlar,
+  .tortlik-panjarasi {
+    grid-template-columns: 1fr;
+  }
+
+  .foto-galereya-pastki {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .foto-katta-rasm img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 560px) {
+  .foto-katta-slayd {
+    padding: 14px;
+  }
+
+  .foto-katta-rasm img {
+    height: 250px;
+  }
+
+  .foto-galereya-boshqaruv {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+
+/* ===== 2026-04 gallery cleanup patch ===== */
+html[data-mavzu='tungi'] .qahramon-badge::before,
+html[data-mavzu='tungi'] .sarlavha-belgisi::before,
+html[data-mavzu='tungi'] .qator-chip::before,
+html[data-mavzu='tungi'] .stat-karta::before,
+html[data-mavzu='tungi'] .oddiy-karta::before,
+html[data-mavzu='tungi'] .yangilik-karta::before,
+html[data-mavzu='tungi'] .ustun-karta::before,
+html[data-mavzu='tungi'] .bosqich-karta::before,
+html[data-mavzu='tungi'] .fikr-karta::before,
+html[data-mavzu='tungi'] .aloqa-karta::before,
+html[data-mavzu='tungi'] .foydali-karta::before,
+html[data-mavzu='tungi'] .galereya-karta::before,
+html[data-mavzu='tungi'] .qadam-karta::before,
+html[data-mavzu='tungi'] .savol-karta::before,
+html[data-mavzu='tungi'] .dastur-karta::before,
+html[data-mavzu='tungi'] .tarix-karta::before,
+html[data-mavzu='tungi'] .jamoa-karta::before,
+html[data-mavzu='tungi'] .qabul-karta::before {
+  display: none;
+}
+
+.foto-galereya-slider {
+  overflow: hidden;
+}
+
+.foto-galereya-track {
+  position: relative;
+  display: block;
+  min-height: 660px;
+}
+
+.foto-katta-slayd {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(28px) scale(.985);
+  transition: opacity .55s ease, transform .55s ease, visibility .55s ease;
+  padding: 18px;
+}
+
+.foto-katta-slayd.faol {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0) scale(1);
+}
+
+.foto-katta-rasm {
+  width: 100%;
+}
+
+.foto-katta-matn {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 1080px) {
+  .foto-galereya-track {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 840px) {
+  .foto-galereya-track {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 560px) {
+  .foto-galereya-track {
+    min-height: 430px;
+  }
+
+  .foto-katta-slayd {
+    padding: 14px;
+  }
+}
+
+
+/* ===== 2026-04 mobile + gallery + footer polish ===== */
+body {
+  background: linear-gradient(180deg, #fffaf5 0%, #fffdfb 45%, #fff8f2 100%);
+}
+
+html[data-mavzu='tungi'] body {
+  background: linear-gradient(180deg, #08101d 0%, #091322 45%, #08111f 100%);
+}
+
+.sahifa-boshi,
+html[data-mavzu='tungi'] .sahifa-boshi {
+  background: color-mix(in srgb, var(--fon-ikkinchi) 90%, transparent);
+}
+
+.aloqa-tugma {
+  background: linear-gradient(180deg, #fff6ed 0%, #ffefdf 100%);
+  color: var(--asosiy);
+  box-shadow: 0 10px 24px rgba(224, 96, 32, 0.10);
+}
+
+html[data-mavzu='tungi'] .aloqa-tugma {
+  background: linear-gradient(180deg, rgba(255, 138, 61, 0.14) 0%, rgba(255, 138, 61, 0.10) 100%);
+  color: #ff9e57;
+  box-shadow: none;
+}
+
+.aloqa-tugma:hover {
+  background: linear-gradient(180deg, #ffead8 0%, #ffe4cf 100%);
+}
+
+html[data-mavzu='tungi'] .aloqa-tugma:hover {
+  background: linear-gradient(180deg, rgba(255, 138, 61, 0.20) 0%, rgba(255, 138, 61, 0.16) 100%);
+}
+
+.mazmun-slidery-trek {
+  align-items: flex-start;
+}
+
+.mazmun-slayd {
+  min-height: auto;
+}
+
+.slayder-pastki-qator {
+  margin-top: 16px;
+}
+
+.foto-galereya-slider {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 86px;
+}
+
+.foto-galereya-track {
+  display: grid !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+.foto-katta-slayd {
+  position: relative !important;
+  inset: auto !important;
+  grid-area: 1 / 1;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(.985);
+  transition: opacity .45s ease, transform .45s ease, visibility .45s ease;
+  padding: 18px 18px 0 !important;
+}
+
+.foto-katta-slayd.faol {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+.foto-katta-rasm {
+  aspect-ratio: 16 / 9;
+  border-radius: 24px;
+}
+
+.foto-katta-rasm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.foto-katta-matn {
+  margin-top: 14px;
+  padding: 0 4px 2px;
+}
+
+.foto-galereya-pastki {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  justify-content: center;
+  padding: 0;
+  z-index: 4;
+}
+
+.foto-galereya-izoh {
+  display: none;
+}
+
+.foto-galereya-boshqaruv {
+  width: auto;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fon-ikkinchi) 92%, transparent);
+  border: 1px solid var(--chiziq);
+  box-shadow: var(--soya);
+}
+
+html[data-mavzu='tungi'] .foto-galereya-boshqaruv {
+  background: rgba(12, 20, 33, 0.92);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.foto-galereya-slider .slayder-tugma {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+
+.oyoq,
+html[data-mavzu='tungi'] .oyoq {
+  background: none !important;
+}
+
+.oyoq {
+  background: linear-gradient(180deg, #fff8f2 0%, #fffaf7 100%) !important;
+}
+
+html[data-mavzu='tungi'] .oyoq {
+  background: linear-gradient(180deg, #091221 0%, #0b1526 100%) !important;
+}
+
+.oyoq::before,
+.oyoq::after,
+.oyoq-ichki::before,
+.oyoq-ichki::after {
+  display: none !important;
+}
+
+.oyoq-panjarasi {
+  align-items: stretch;
+}
+
+.oyoq-ustun {
+  padding: 24px;
+  border-radius: 24px;
+  padding-bottom: 60px;
+}
+
+html[data-mavzu='tungi'] .oyoq-ustun {
+  background: rgba(13, 22, 36, 0.84) !important;
+}
+
+html[data-mavzu='tungi'] .stat-karta::before,
+html[data-mavzu='tungi'] .stat-karta::after,
+html[data-mavzu='tungi'] .oddiy-karta::before,
+html[data-mavzu='tungi'] .yangilik-karta::before,
+html[data-mavzu='tungi'] .ustun-karta::before,
+html[data-mavzu='tungi'] .qadam-karta::before,
+html[data-mavzu='tungi'] .qabul-karta::before,
+html[data-mavzu='tungi'] .mazmun-slidery::before {
+  display: none !important;
+}
+
+@media (max-width: 1080px) {
+  .foto-katta-rasm {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 700px) {
+  .yuqori-qism {
+    min-height: 78px;
+    padding: 10px 0;
+  }
+
+  .sayyoh-nav {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-qismi {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+  }
+
+  .logo-qismi img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ong-amallar {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin-left: 0;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mavzu-tugma {
+    width: 42px;
+    height: 42px;
+  }
+
+  .menu-tugma {
+    display: flex;
+    grid-column: 3;
+    grid-row: 1;
+    order: unset;
+    justify-self: end;
+    width: 42px;
+    height: 42px;
+  }
+
+  .aloqa-tugma {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border-radius: 14px;
+  }
+
+  .havolalar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 6px;
+    padding-inline: 0;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--fon-ikkinchi) 96%, transparent);
+    border: 1px solid var(--chiziq);
+  }
+
+  html[data-mavzu='tungi'] .havolalar {
+    background: rgba(12, 20, 33, 0.94);
+  }
+
+  .havolalar.ochiq {
+    padding: 8px;
+  }
+
+  .qahramon {
+    padding-top: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .konteyner {
+    width: min(100% - 20px, 1460px);
+  }
+
+  .qahramon h1,
+  .ichki-qahramon h1,
+  .bolim-boshi h2,
+  .slayd-sarlavha-qismi h3 {
+    font-size: clamp(1.95rem, 10vw, 2.65rem);
+    line-height: 1.08;
+  }
+
+  .slayder-holat-matni {
+    display: none;
+  }
+
+  .slayder-pastki-qator {
+    justify-content: center;
+  }
+
+  .foto-galereya-slider {
+    padding-bottom: 78px;
+  }
+
+  .foto-katta-slayd {
+    padding: 12px 12px 0 !important;
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 5 / 4;
+    border-radius: 18px;
+  }
+
+  .foto-katta-matn strong {
+    font-size: 1.15rem;
+  }
+
+  .foto-galereya-pastki {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .foto-galereya-boshqaruv {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .oyoq-ichki {
+    padding: 28px 0 18px;
+  }
+}
+
+
+/* ===== 2026-04 final slider + media polish ===== */
+.slayder-yuqori-qator {
+  align-items: flex-start;
+}
+
+.slayder-yuqori-eslatma {
+  margin-left: auto;
+  max-width: 420px;
+  color: var(--matn-xira);
+  font-size: .98rem;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.mazmun-slidery {
+  padding-bottom: 18px;
+}
+
+.mazmun-slidery-trek {
+  align-items: flex-start;
+  transition: transform .8s cubic-bezier(.22, 1, .36, 1), height .55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mazmun-slayd {
+  min-height: auto !important;
+  padding-bottom: 4px;
+}
+
+.baland-uchlik .ustun-karta,
+.baland-qadam-panjarasi .qadam-karta {
+  min-height: 0 !important;
+}
+
+.ustun-karta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ustun-karta .karta-izoh {
+  margin-top: auto;
+}
+
+.slayd-foyda-chiplar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.slayd-foyda-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--chiziq);
+  background: color-mix(in srgb, var(--fon-ikkinchi) 92%, white);
+  color: var(--matn-xira);
+  font-size: .95rem;
+  font-weight: 600;
+}
+
+html[data-mavzu='tungi'] .slayd-foyda-chip {
+  background: rgba(18, 24, 36, 0.92);
+  border-color: rgba(255, 255, 255, .08);
+  color: rgba(226, 232, 240, 0.82);
+}
+
+.slayder-pastki-qator {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--chiziq);
+  align-items: center;
+}
+
+.slayder-past-boshqaruv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.foto-katta-rasm {
+  aspect-ratio: 4 / 3;
+}
+
+.foto-katta-rasm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.oyoq {
+  background: linear-gradient(180deg, #fff8f2 0%, #fffaf7 100%) !important;
+}
+
+.oyoq-ustun {
+  background: color-mix(in srgb, var(--kartochka) 94%, white) !important;
+  border: 1px solid var(--chiziq);
+  box-shadow: none !important;
+}
+
+html[data-mavzu='tungi'] .oyoq {
+  background: linear-gradient(180deg, #091221 0%, #0b1526 100%) !important;
+}
+
+html[data-mavzu='tungi'] .oyoq-ustun {
+  background: rgba(13, 22, 36, 0.9) !important;
+}
+
+html[data-mavzu='tungi'] .tepaga-tugma {
+  background: color-mix(in srgb, var(--kartochka) 86%, rgba(8, 12, 18, 0.6));
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--asosiy);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34);
+}
+
+html[data-mavzu='tungi'] .tepaga-tugma:hover {
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 64%, var(--kartochka));
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.taqdimot-boshi {
+  justify-content: flex-start;
+}
+
+.taqdimot-boshi > div {
+  max-width: 780px;
+}
+
+.slayder-yuqori-qator {
+  justify-content: flex-start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tepaga-tugma {
+    transition: opacity .2s ease, visibility .2s ease;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.yuklanish-ekrani {
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+@media (max-width: 1080px) {
+  .slayder-yuqori-qator {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .slayder-yuqori-eslatma {
+    margin-left: 0;
+    max-width: 100%;
+    text-align: left;
+  }
+}
+
+@media (max-width: 840px) {
+  .slayder-pastki-qator {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .slayder-past-boshqaruv {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .slayd-foyda-chiplar {
+    justify-content: center;
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (max-width: 560px) {
+  .mazmun-slidery {
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  .slayder-yorliq,
+  .slayd-ust-belgi {
+    font-size: .8rem;
+    padding: 8px 12px;
+  }
+
+  .slayd-sarlavha-qismi h3 {
+    font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
+  }
+
+  .ustun-karta,
+  .qadam-karta,
+  .oddiy-karta,
+  .yangilik-karta .oddiy-karta {
+    padding: 18px 16px;
+  }
+
+  .slayd-foyda-chiplar {
+    gap: 8px;
+  }
+
+  .slayd-foyda-chip {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: .88rem;
+  }
+
+  .slayder-holat-matni {
+    text-align: center;
+    font-size: .9rem;
+  }
+
+  .slayder-past-boshqaruv {
+    gap: 10px;
+  }
+
+  .slayder-past-boshqaruv .slayder-tugma,
+  .foto-galereya-slider .slayder-tugma {
+    width: 42px;
+    height: 42px;
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ===== 2026-04 responsive slider final fix ===== */
+.bolim-boshi,
+.slayd-sarlavha-qismi {
+  position: relative;
+  z-index: 2;
+}
+
+.bolim-boshi {
+  margin-bottom: 28px;
+}
+
+.bolim-boshi p,
+.slayd-sarlavha-qismi p,
+.slayder-yuqori-eslatma,
+.karta-izoh,
+.ustun-karta p,
+.qadam-karta p,
+.qabul-karta p,
+.foto-katta-matn p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.mazmun-slidery {
+  overflow: hidden;
+  padding-left: 88px;
+  padding-right: 88px;
+}
+
+.mazmun-slidery-trek {
+  width: 100%;
+}
+
+.mazmun-slayd {
+  max-width: 100%;
+}
+
+.mazmun-slidery>.slayder-pastki-qator {
+  justify-content: center;
+  position: relative;
+  padding-top: 18px;
+  min-height: 62px;
+}
+
+.mazmun-slidery>.slayder-pastki-qator .slayder-holat-matni {
+  display: none;
+}
+
+.mazmun-slidery>.slayder-pastki-qator .slayder-past-boshqaruv {
+  width: 100%;
+  margin-left: 0;
+  justify-content: center;
+  position: static;
+}
+
+.mazmun-slidery>.slayder-pastki-qator .slayder-nuqtalar {
+  justify-content: center;
+}
+
+.mazmun-slidery>.slayder-pastki-qator [data-slider-prev],
+.mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  border-radius: 999px;
+}
+
+.mazmun-slidery>.slayder-pastki-qator [data-slider-prev] {
+  left: 0;
+}
+
+.mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+  right: 0;
+}
+
+.mazmun-slidery>.slayder-pastki-qator [data-slider-prev]:hover,
+.mazmun-slidery>.slayder-pastki-qator [data-slider-next]:hover {
+  transform: translateY(calc(-50% - 2px));
+}
+
+.foto-galereya-slider {
+  overflow: hidden;
+}
+
+.foto-katta-rasm {
+  aspect-ratio: 16 / 10;
+}
+
+.foto-katta-rasm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1080px) {
+  .mazmun-slidery {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (max-width: 840px) {
+
+  .bolim-boshi,
+  .slayd-sarlavha-qismi {
+    gap: 14px;
+  }
+
+  .bolim-boshi p {
+    margin-top: 4px;
+  }
+
+  .mazmun-slidery {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator {
+    min-height: 56px;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-prev],
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+    top: auto;
+    bottom: 0;
+    transform: none;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-prev] {
+    left: 0;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+    right: 0;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-prev]:hover,
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-next]:hover {
+    transform: translateY(-2px);
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 16 / 12;
+  }
+}
+
+@media (max-width: 560px) {
+  .bolim-boshi {
+    margin-bottom: 20px;
+  }
+
+  .bolim-boshi p,
+  .slayd-sarlavha-qismi p,
+  .slayder-yuqori-eslatma {
+    font-size: .98rem;
+    line-height: 1.62;
+    max-width: 100%;
+  }
+
+  .mazmun-slidery {
+    padding: 14px 14px 66px;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator {
+    min-height: 0;
+    padding-top: 12px;
+    border-top: 0;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator .slayder-past-boshqaruv {
+    justify-content: center;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-prev],
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+    bottom: 10px;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-prev] {
+    left: 14px;
+  }
+
+  .mazmun-slidery>.slayder-pastki-qator [data-slider-next] {
+    right: 14px;
+  }
+
+  .foto-katta-rasm {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.mazmun-slidery>.slayder-pastki-qator {
+  position: static;
+}
+
+/* restored footer contact links */
+.oyoq-ustun a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .25s ease, opacity .25s ease;
+}
+
+.oyoq-ustun a:hover {
+  color: var(--asosiy);
+}
+
+html[data-mavzu='tungi'] .oyoq-ustun a:hover {
+  color: #ffb37a;
+}
+
+/* ===== Filial xaritalari - yangilangan premium ko‘rinish ===== */
+.filial-manzillari {
+  padding-top: 8px;
+}
+
+.filial-bosh {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.filial-bosh>div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filial-bosh .texth2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.filial-bosh h2 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.filial-bosh__yorliq {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  margin-bottom: 14px;
+  margin-inline: auto;
+  border-radius: 999px;
+  background: var(--asosiy-yumshoq);
+  border: 1px solid var(--chiziq);
+  color: var(--asosiy);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.filial-panjarasi {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.filial-karta {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--kartochka) 96%, white) 0%, var(--kartochka) 100%);
+  border: 1px solid var(--chiziq);
+  border-radius: 30px;
+  padding: 18px;
+  box-shadow: var(--soya);
+  overflow: hidden;
+}
+
+.filial-karta__ust {
+  display: grid;
+  gap: 12px;
+  padding: 6px 6px 18px;
+}
+
+.filial-chip {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fon-uchinchi) 85%, white);
+  border: 1px solid var(--chiziq);
+  color: var(--matn);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.filial-karta h3 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+  line-height: 1.04;
+  letter-spacing: -0.04em;
+}
+
+.filial-karta p {
+  max-width: 58ch;
+  color: var(--matn-xira);
+  font-size: 1rem;
+}
+
+.filial-amallar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filial-amallar a {
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+}
+
+.filial-amallar a:first-child {
+  background: linear-gradient(135deg, var(--grad-2), var(--grad-1));
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(224, 96, 32, 0.22);
+}
+
+.filial-amallar a:last-child {
+  background: transparent;
+  color: var(--matn);
+  border: 1px solid var(--chiziq);
+}
+
+.filial-amallar a:hover {
+  transform: translateY(-2px);
+}
+
+.filial-amallar a:last-child:hover {
+  background: var(--fon-uchinchi);
+  border-color: color-mix(in srgb, var(--asosiy) 35%, var(--chiziq));
+}
+
+.filial-xarita {
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 340px;
+  border: 1px solid color-mix(in srgb, var(--chiziq) 90%, transparent);
+  background: color-mix(in srgb, var(--fon-uchinchi) 75%, white);
+}
+
+.filial-xarita iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+}
+
+html[data-mavzu='tungi'] .filial-karta {
+  background: linear-gradient(180deg, rgba(22, 26, 35, 0.98) 0%, rgba(23, 29, 40, 1) 100%);
+}
+
+html[data-mavzu='tungi'] .filial-chip {
+  background: rgba(255, 138, 61, 0.08);
+}
+
+html[data-mavzu='tungi'] .filial-xarita {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+@media (max-width: 1080px) {
+  .filial-panjarasi {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .filial-karta {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
+  .filial-karta__ust {
+    padding: 4px 4px 14px;
+  }
+
+  .filial-karta h3 {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+
+  .filial-amallar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .filial-amallar a {
+    width: 100%;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 280px;
+  }
+}
+/* ===== 2026-04-15 nav + mobile overlap hotfix ===== */
+.korindi {
+  align-items: normal !important;
+}
+
+.logo-qismi,
+.ong-amallar,
+.menu-tugma,
+.havolalar {
+  min-width: 0;
+}
+
+@media (max-width: 1080px) and (min-width: 841px) {
+  .sayyoh-nav {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .logo-qismi img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .havolalar {
+    flex: 1 1 auto;
+    gap: 2px;
+  }
+
+  .havolalar li,
+  .havolalar li.uzun {
+    min-width: auto;
+  }
+
+  .havolalar a {
+    padding: 0 12px;
+    font-size: .93rem;
+    white-space: nowrap;
+  }
+
+  .havolalar a::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .ong-amallar {
+    flex: 0 0 auto;
+    min-width: auto;
+    gap: 10px;
+  }
+
+  .aloqa-tugma {
+    width: 150px;
+    flex: 0 0 150px;
+  }
+}
+
+@media (max-width: 840px) {
+  .yuqori-qism {
+    min-height: 78px;
+    padding: 10px 0;
+  }
+
+  .sayyoh-nav {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-qismi {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .logo-qismi img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .ong-amallar {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    margin-left: 0;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .mavzu-tugma {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  .aloqa-tugma {
+    height: 48px;
+    width: auto;
+    min-width: 120px;
+    max-width: 220px;
+    flex: 1 1 180px;
+    padding: 0 16px;
+    white-space: nowrap;
+  }
+
+  .menu-tugma {
+    display: flex;
+    grid-column: 3;
+    grid-row: 1;
+    order: unset;
+    justify-self: end;
+    align-self: center;
+    width: 42px;
+    height: 42px;
+    margin-left: 0;
+  }
+
+  .havolalar {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin-top: 6px;
+    padding-inline: 0;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--fon-ikkinchi) 96%, transparent);
+    border: 1px solid var(--chiziq);
+    box-shadow: none;
+  }
+
+  html[data-mavzu='tungi'] .havolalar {
+    background: rgba(12, 20, 33, 0.94);
+  }
+
+  .havolalar.ochiq {
+    padding: 8px;
+  }
+
+  .havolalar li,
+  .havolalar li.uzun {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+  }
+
+  .havolalar a {
+    min-height: 46px;
+    justify-content: flex-start;
+    padding: 0 16px;
+  }
+
+  .havolalar a::after {
+    left: 16px;
+    right: 16px;
+    width: auto;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img,
+  .foto-katta-slayd,
+  .foto-katta-slayd.faol,
+  .galereya-karta img,
+  .yangilik-karta img,
+  .rasmli-karta img {
+    transform: none !important;
+  }
+
+  [data-jonlanish],
+  [data-jonlanish].korindi {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .stat-karta:hover,
+  .oddiy-karta:hover,
+  .yangilik-karta:hover,
+  .ustun-karta:hover,
+  .bosqich-karta:hover,
+  .fikr-karta:hover,
+  .aloqa-karta:hover,
+  .foydali-karta:hover,
+  .galereya-karta:hover,
+  .qadam-karta:hover,
+  .savol-karta:hover,
+  .dastur-karta:hover,
+  .tarix-karta:hover,
+  .jamoa-karta:hover,
+  .qabul-karta:hover,
+  .jadval:hover,
+  .filial-amallar a:hover,
+  .slayder-tugma:hover,
+  .mavzu-tugma:hover,
+  .aloqa-tugma:hover,
+  .toq-tugma:hover,
+  .yorqin-tugma:hover,
+  .xabar-tugma:hover {
+    transform: none !important;
+  }
+
+  .galereya-karta:hover img,
+  .yangilik-karta:hover img,
+  .rasmli-karta:hover img {
+    transform: none !important;
+  }
+
+  .filial-karta,
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .qadam-karta,
+  .qabul-karta,
+  .savol-karta,
+  .aloqa-karta,
+  .dastur-karta,
+  .jamoa-karta,
+  .tarix-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .foydali-karta,
+  .galereya-karta {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filial-karta__ust,
+  .foto-katta-matn,
+  .oddiy-karta,
+  .yangilik-karta .oddiy-karta {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .sayyoh-nav {
+    gap: 8px;
+  }
+
+  .ong-amallar {
+    gap: 8px;
+  }
+
+  .aloqa-tugma {
+    min-width: 0;
+    flex-basis: 0;
+  }
+}
+
+
+/* ===== aloqa sahifa layout fix ===== */
+.aloqa-sahifa .bolim-boshi {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, .92fr);
+  align-items: end;
+  gap: 22px 28px;
+}
+
+.aloqa-sahifa .bolim-boshi > div {
+  min-width: 0;
+}
+
+.aloqa-sahifa .bolim-boshi p {
+  margin: 0;
+  max-width: 48ch;
+  justify-self: end;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.aloqa-sahifa .aloqa-panjarasi,
+.aloqa-sahifa .qadam-panjarasi,
+.aloqa-sahifa .savol-panjarasi {
+  align-items: stretch;
+}
+
+.aloqa-sahifa .aloqa-karta,
+.aloqa-sahifa .qabul-karta,
+.aloqa-sahifa .savol-karta {
+  min-height: 142px;
+  height: 100%;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.aloqa-sahifa .qabul-karta {
+  min-height: 152px;
+}
+
+.aloqa-sahifa .aloqa-karta strong,
+.aloqa-sahifa .qabul-karta strong,
+.aloqa-sahifa .savol-karta strong {
+  margin-bottom: 0;
+  line-height: 1.3;
+}
+
+.aloqa-sahifa .aloqa-karta p,
+.aloqa-sahifa .qabul-karta p,
+.aloqa-sahifa .savol-karta p {
+  margin: 0;
+  line-height: 1.72;
+}
+
+.aloqa-sahifa .aloqa-karta a,
+.aloqa-sahifa .qabul-karta a,
+.aloqa-sahifa .savol-karta a {
+  word-break: break-word;
+}
+
+@media (max-width: 980px) {
+  .aloqa-sahifa .bolim-boshi {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .aloqa-sahifa .bolim-boshi p {
+    justify-self: start;
+    max-width: 62ch;
+  }
+}
+
+@media (max-width: 840px) {
+  .aloqa-sahifa .aloqa-karta,
+  .aloqa-sahifa .qabul-karta,
+  .aloqa-sahifa .savol-karta {
+    min-height: 0;
+    padding: 22px 20px;
+  }
+}
+
+
+/* ===== ultra-wide responsive qo'shimcha: bitta css ichida ===== */
+@media (min-width: 1800px) {
+  .konteyner {
+    width: min(1760px, calc(100% - 88px));
+  }
+
+  .yuqori-qism {
+    min-height: 96px;
+  }
+
+  .logo-qismi img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .havolalar {
+    gap: 10px;
+  }
+
+  .havolalar li {
+    min-width: 122px;
+    height: 50px;
+  }
+
+  .havolalar li.uzun {
+    min-width: 174px;
+  }
+
+  .havolalar a {
+    font-size: 1.02rem;
+    padding: 0 20px;
+  }
+
+  .mavzu-tugma {
+    width: 52px;
+    height: 52px;
+  }
+
+  .aloqa-tugma {
+    width: 206px;
+    height: 54px;
+  }
+
+  .qahramon {
+    padding: 72px 0 42px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 34px;
+  }
+
+  .qahramon h1 {
+    width: min(860px, 100%);
+    font-size: clamp(3.3rem, 3.4vw, 5rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.14rem;
+  }
+
+  .tugmalar-qatori {
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .toq-tugma,
+  .yorqin-tugma,
+  .xabar-tugma {
+    min-width: 206px;
+    height: 56px;
+    padding: 0 24px;
+  }
+
+  .qisqa-statlar {
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .stat-karta {
+    padding: 22px 22px 20px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.15rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 660px;
+    border-radius: 34px;
+  }
+
+  .ustma-karta {
+    padding: 18px 20px;
+  }
+
+  .ustma-karta strong {
+    font-size: 1.1rem;
+  }
+
+  .ustma-karta span {
+    font-size: 0.98rem;
+  }
+
+  .bolim {
+    padding: 54px 0;
+  }
+
+  .bolim-boshi {
+    margin-bottom: 28px;
+    gap: 24px;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(2.35rem, 2.35vw, 3.45rem);
+  }
+
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .filial-panjarasi {
+    gap: 22px;
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 28px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.24rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 260px;
+  }
+
+  .galereya-karta img {
+    height: 320px;
+  }
+
+  .ichki-qahramon {
+    padding: 64px 0 24px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 520px;
+    border-radius: 32px;
+  }
+
+  .filial-karta {
+    padding: 22px;
+    border-radius: 34px;
+  }
+
+  .filial-karta p {
+    font-size: 1.06rem;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 400px;
+  }
+
+  .oyoq-ichki {
+    padding: 42px 0 26px;
+  }
+
+  .oyoq-ustun strong {
+    font-size: 1.12rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .konteyner {
+    width: min(2080px, calc(100% - 110px));
+  }
+
+  .yuqori-qism {
+    min-height: 104px;
+  }
+
+  .logo-qismi img {
+    width: 88px;
+    height: 88px;
+  }
+
+  .havolalar li {
+    min-width: 132px;
+    height: 54px;
+  }
+
+  .havolalar li.uzun {
+    min-width: 188px;
+  }
+
+  .havolalar a {
+    font-size: 1.08rem;
+    padding: 0 24px;
+  }
+
+  .mavzu-tugma {
+    width: 56px;
+    height: 56px;
+  }
+
+  .aloqa-tugma {
+    width: 224px;
+    height: 58px;
+  }
+
+  .qahramon {
+    padding: 84px 0 48px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 42px;
+  }
+
+  .qahramon h1 {
+    width: min(980px, 100%);
+    font-size: clamp(3.9rem, 3.3vw, 5.9rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.2rem;
+  }
+
+  .toq-tugma,
+  .yorqin-tugma,
+  .xabar-tugma {
+    min-width: 220px;
+    height: 60px;
+    font-size: 1.02rem;
+  }
+
+  .stat-karta {
+    padding: 24px 24px 22px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.35rem;
+  }
+
+  .stat-karta span {
+    font-size: 1rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 760px;
+    border-radius: 38px;
+  }
+
+  .ustma-karta {
+    padding: 20px 22px;
+    border-radius: 22px;
+  }
+
+  .bolim {
+    padding: 62px 0;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(2.6rem, 2.2vw, 3.8rem);
+  }
+
+  .uchlik-panjarasi,
+  .tortlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .filial-panjarasi {
+    gap: 26px;
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 32px;
+    border-radius: 28px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.32rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 290px;
+  }
+
+  .galereya-karta img {
+    height: 360px;
+  }
+
+  .ichki-qahramon {
+    padding: 74px 0 28px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 600px;
+    border-radius: 36px;
+  }
+
+  .filial-karta {
+    padding: 26px;
+    border-radius: 36px;
+  }
+
+  .filial-karta p {
+    max-width: 64ch;
+    font-size: 1.1rem;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 460px;
+  }
+
+  .oyoq-ichki {
+    padding: 48px 0 30px;
+  }
+}
+
+@media (min-width: 3600px) {
+  .konteyner {
+    width: min(2920px, calc(100% - 160px));
+  }
+
+  .qahramon {
+    padding: 104px 0 60px;
+  }
+
+  .qahramon h1 {
+    width: min(1180px, 100%);
+    font-size: clamp(4.8rem, 3.1vw, 7rem);
+  }
+
+  .qahramon p,
+  .ichki-qahramon p,
+  .bolim-boshi p {
+    font-size: 1.28rem;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 940px;
+  }
+
+  .stat-karta strong {
+    font-size: 2.7rem;
+  }
+
+  .bolim {
+    padding: 74px 0;
+  }
+
+  .bolim-boshi h2,
+  .ichki-qahramon h1,
+  .filial-karta h3 {
+    font-size: clamp(3rem, 2vw, 4.4rem);
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta {
+    padding: 38px;
+    border-radius: 32px;
+  }
+
+  .oddiy-karta strong,
+  .yangilik-karta strong,
+  .ustun-karta strong,
+  .bosqich-karta strong,
+  .fikr-karta strong,
+  .aloqa-karta strong,
+  .foydali-karta strong,
+  .qadam-karta strong,
+  .savol-karta strong,
+  .dastur-karta strong,
+  .tarix-karta strong,
+  .jamoa-karta strong,
+  .qabul-karta strong,
+  .galereya-sarlavha {
+    font-size: 1.5rem;
+  }
+
+  .rasmli-karta img,
+  .yangilik-karta img {
+    height: 360px;
+  }
+
+  .galereya-karta img {
+    height: 430px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 760px;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 600px;
+  }
+}
+
+
+/* ===== 2026-04-15 yakuniy responsive polish ===== */
+.sayyoh-nav,
+.havolalar,
+.ong-amallar,
+.logo-qismi {
+  min-width: 0;
+}
+
+.ong-amallar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bosh-sahifa .qahramon-matn [data-kirish] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.yangilik-karta .oddiy-karta,
+.rasmli-karta,
+.oddiy-karta,
+.ustun-karta,
+.aloqa-karta,
+.qabul-karta,
+.savol-karta,
+.dastur-karta,
+.jamoa-karta,
+.tarix-karta,
+.bosqich-karta,
+.foydali-karta,
+.galereya-karta,
+.filial-karta {
+  min-width: 0;
+}
+
+@media (min-width: 1081px) {
+  .sayyoh-nav {
+    display: flex !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .logo-qismi {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    margin-right: 2px;
+  }
+
+  .havolalar {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding-inline: 8px;
+  }
+
+  .havolalar li,
+  .havolalar li.uzun {
+    min-width: auto;
+    flex: 0 1 auto;
+  }
+
+  .havolalar a {
+    padding: 0 14px;
+    white-space: nowrap;
+  }
+
+  .havolalar a::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  .ong-amallar {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sayyoh-nav {
+    gap: 12px;
+  }
+
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 18px;
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi,
+  .oyoq-panjarasi,
+  .filial-panjarasi {
+    grid-template-columns: 1fr !important;
+  }
+
+  .qahramon-matn,
+  .ichki-qahramon-matn {
+    order: 1;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm {
+    order: 2;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm,
+  .filial-karta,
+  .filial-xarita {
+    max-width: 100%;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img {
+    min-height: 420px;
+  }
+
+  .ustma-bir {
+    left: 12px;
+    top: 12px;
+  }
+
+  .ustma-ikki {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .stat-karta:hover,
+  .oddiy-karta:hover,
+  .yangilik-karta:hover,
+  .ustun-karta:hover,
+  .bosqich-karta:hover,
+  .fikr-karta:hover,
+  .aloqa-karta:hover,
+  .foydali-karta:hover,
+  .galereya-karta:hover,
+  .qadam-karta:hover,
+  .savol-karta:hover,
+  .dastur-karta:hover,
+  .tarix-karta:hover,
+  .jamoa-karta:hover,
+  .qabul-karta:hover,
+  .jadval:hover,
+  .filial-karta:hover,
+  .filial-amallar a:hover {
+    transform: none !important;
+  }
+
+  .galereya-karta:hover img,
+  .yangilik-karta:hover img,
+  .rasmli-karta:hover img {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 840px) {
+  .konteyner {
+    width: min(100%, calc(100% - 18px));
+  }
+
+  .bolim-boshi,
+  .aloqa-sahifa .bolim-boshi {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .aloqa-sahifa .bolim-boshi p,
+  .bolim-boshi p {
+    justify-self: start;
+    max-width: 100%;
+  }
+
+  .ustma-karta {
+    position: static;
+    margin-top: 12px;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img {
+    min-height: 320px;
+  }
+
+  .filial-karta__ust,
+  .filial-amallar,
+  .filial-xarita {
+    width: 100%;
+  }
+
+  .filial-bosh,
+  .filial-bosh > div,
+  .filial-bosh .texth2,
+  .filial-bosh h2 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .konteyner {
+    width: min(100%, calc(100% - 14px));
+  }
+
+  .logo-qismi img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .aloqa-tugma {
+    padding: 0 14px;
+    font-size: 0.94rem;
+  }
+
+  .qahramon {
+    padding-top: 34px;
+  }
+
+  .qahramon h1,
+  .ichki-qahramon h1,
+  .bolim-boshi h2 {
+    line-height: 1.06;
+  }
+
+  .qisqa-statlar,
+  .tortlik-panjarasi,
+  .uchlik-panjarasi,
+  .ikkilik-panjarasi,
+  .yangilik-panjarasi,
+  .galereya-panjarasi,
+  .dastur-panjarasi,
+  .jamoa-panjarasi,
+  .savol-panjarasi,
+  .aloqa-panjarasi,
+  .qadam-panjarasi,
+  .bosqich-panjarasi,
+  .filial-panjarasi,
+  .oyoq-panjarasi {
+    grid-template-columns: 1fr !important;
+  }
+
+  .oddiy-karta,
+  .yangilik-karta,
+  .ustun-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .aloqa-karta,
+  .foydali-karta,
+  .qadam-karta,
+  .savol-karta,
+  .dastur-karta,
+  .tarix-karta,
+  .jamoa-karta,
+  .qabul-karta,
+  .filial-karta {
+    padding: 20px;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 250px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .konteyner {
+    width: min(1920px, calc(100% - 96px));
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 700px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 560px;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 430px;
+  }
+}
+
+@media (min-width: 4000px) {
+  .konteyner {
+    width: min(3200px, calc(100% - 180px));
+  }
+
+  .qahramon-rasm .asosiy-rasm {
+    min-height: 980px;
+  }
+
+  .ichki-qahramon-rasm img {
+    min-height: 760px;
+  }
+
+  .filial-xarita,
+  .filial-xarita iframe {
+    min-height: 620px;
+  }
+}
+
+/* ===== 2026-04-16 desktop nav center + right actions ===== */
+@media (min-width: 841px) {
+  .sayyoh-nav {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 18px;
+    row-gap: 0;
+    width: 100%;
+  }
+
+  .logo-qismi {
+    grid-column: 1;
+    justify-self: start;
+    margin-right: 0;
+    min-width: 0;
+  }
+
+  .havolalar {
+    grid-column: 2;
+    width: 100%;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding-inline: 0;
+    margin: 0;
+  }
+
+  .havolalar li,
+  .havolalar li.uzun {
+    min-width: auto;
+    flex: 0 0 auto;
+  }
+
+  .havolalar a {
+    white-space: nowrap;
+  }
+
+  .ong-amallar {
+    grid-column: 3;
+    justify-self: end;
+    margin-left: 0;
+    flex: 0 0 auto;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 841px) and (max-width: 1080px) {
+  .sayyoh-nav {
+    column-gap: 12px;
+  }
+
+  .logo-qismi img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .havolalar {
+    gap: 2px;
+  }
+
+  .havolalar a {
+    padding: 0 12px;
+    font-size: .93rem;
+  }
+
+  .havolalar a::after {
+    left: 12px;
+    right: 12px;
+  }
+
+  .aloqa-tugma {
+    width: 150px;
+    flex: 0 0 150px;
+  }
+}
+
+/* ===== 2026-04-16 responsive edge padding fix ===== */
+:root {
+  --sahifa-yon-padding: clamp(18px, 2.2vw, 40px);
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+.konteyner {
+  width: min(1460px, calc(100% - (var(--sahifa-yon-padding) * 2))) !important;
+}
+
+.qahramon,
+.ichki-qahramon,
+.bolim,
+.oyoq {
+  overflow-x: clip;
+}
+
+@media (max-width: 1280px) {
+  :root {
+    --sahifa-yon-padding: 24px;
+  }
+}
+
+@media (max-width: 840px) {
+  :root {
+    --sahifa-yon-padding: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  :root {
+    --sahifa-yon-padding: 14px;
+  }
+
+  .bolim,
+  .qahramon,
+  .ichki-qahramon {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .oddiy-karta,
+  .ustun-karta,
+  .yangilik-karta .oddiy-karta,
+  .aloqa-karta,
+  .qabul-karta,
+  .savol-karta,
+  .dastur-karta,
+  .jamoa-karta,
+  .tarix-karta,
+  .bosqich-karta,
+  .fikr-karta,
+  .foydali-karta,
+  .filial-karta {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .mazmun-slidery,
+  .filial-karta__ust,
+  .foto-katta-matn {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .oyoq-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.oyoq-ustun h5{
+  font-family: "Rubik Marker Hatch", system-ui;
+  color: var(--matn);
+  font-size: 24px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.oyoq-ustun h5 #first-oyoq{
+  color: var(--grad-1);
+}
+.oyoq-ustun h5 #ikkinchi-oyoq{
+  color: var(--grad-2);
+}
+.oyoq-ustun h5 #uchinchi-oyoq{
+  color: var(--grad-3);
+}
+
+/* === 2026-04 FAQ + NARX/GRANT + FOOTER IMPROVEMENTS === */
+.narx-grant-bolim {
+  position: relative;
+}
+
+.narx-grant-bolim::before,
+.faq-bolim::before {
+  content: '';
+  position: absolute;
+  inset: 36px 0 auto;
+  height: 280px;
+  background: radial-gradient(circle at top center, color-mix(in srgb, var(--asosiy) 13%, transparent) 0%, transparent 72%);
+  pointer-events: none;
+}
+
+.narx-grant-boshi,
+.faq-boshi {
+  align-items: end;
+}
+
+.narx-grant-panjarasi {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.narx-karta {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(224, 96, 32, 0.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(255,250,245,0.94) 100%);
+  box-shadow: 0 26px 70px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.narx-karta::after {
+  content: '';
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--asosiy) 12%, transparent);
+  filter: blur(8px);
+}
+
+.narx-karta--grant {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 255, 252, 0.95) 100%);
+}
+
+.narx-karta__ust,
+.narx-karta__past,
+.narx-jadvali,
+.grant-tavsiflar,
+.grant-foizlar {
+  position: relative;
+  z-index: 1;
+}
+
+.narx-karta__ust h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1.45rem, 1.2rem + 0.7vw, 2rem);
+}
+
+.narx-karta__ust p,
+.narx-karta__past span,
+.grant-tavsif span,
+.narx-satri span,
+.faq-javob p {
+  color: var(--matn-xira);
+  line-height: 1.72;
+}
+
+.narx-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: rgba(224, 96, 32, 0.10);
+  color: var(--asosiy-toq);
+}
+
+.narx-badge--grant {
+  background: rgba(17, 148, 95, 0.10);
+  color: #0c7a4b;
+}
+
+.narx-jadvali,
+.grant-tavsiflar {
+  display: grid;
+  gap: 14px;
+}
+
+.narx-satri,
+.grant-tavsif {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.narx-satri strong,
+.grant-tavsif strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.narx-satri b {
+  flex-shrink: 0;
+  font-size: 1.18rem;
+  color: var(--asosiy-toq);
+}
+
+.grant-foizlar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.grant-foizlar span {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-width: 82px;
+  padding: 14px 18px;
+  text-align: center;
+  border-radius: 18px;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #4b2600;
+  background: linear-gradient(135deg, var(--grad-2) 0%, var(--grad-3) 100%);
+  border: 1px solid color-mix(in srgb, var(--grad-2) 35%, rgba(15, 23, 42, 0.08));
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--grad-2) 24%, transparent);
+}
+
+.grant-foizlar span::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 12%, rgba(255,255,255,0.34) 46%, transparent 82%);
+  transform: translateX(-135%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.grant-foizlar span:hover::before {
+  animation: yaltiroq-yurishi 1s ease;
+}
+
+.narx-karta__past {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.narx-karta__past--ustma {
+  align-items: flex-end;
+}
+
+.faq-bolim {
+  position: relative;
+}
+
+.faq-bolim--keng .konteyner {
+  position: relative;
+}
+
+.faq-akkordeon {
+  display: grid;
+  gap: 16px;
+}
+
+.faq-item {
+  border-radius: 26px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248, 250, 252, 0.98));
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 54px rgba(15, 23, 42, 0.08);
+  border-color: rgba(224, 96, 32, 0.16);
+}
+
+.faq-item.ochiq {
+  border-color: rgba(224, 96, 32, 0.22);
+  box-shadow: 0 26px 60px rgba(224, 96, 32, 0.09);
+}
+
+.faq-sarlavha {
+  width: 100%;
+  padding: 24px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+  font-weight: 800;
+  font-size: clamp(1.02rem, 0.98rem + 0.24vw, 1.22rem);
+}
+
+.faq-belgi {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--asosiy-toq);
+  background: rgba(224, 96, 32, 0.10);
+  transition: transform 0.28s ease, background 0.28s ease, color 0.28s ease;
+}
+
+.faq-item.ochiq .faq-belgi {
+  transform: rotate(45deg);
+  background: var(--asosiy);
+  color: white;
+}
+
+.faq-javob {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 26px;
+  transition: max-height 0.32s ease, padding 0.32s ease;
+}
+
+.faq-item.ochiq .faq-javob {
+  padding: 0 26px 24px;
+}
+
+.oyoq {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96) 0%, rgba(242, 245, 249, 1) 100%) !important;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.oyoq::before,
+.oyoq::after {
+  content: '';
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.oyoq::before {
+  left: -90px;
+  bottom: -120px;
+  background: color-mix(in srgb, var(--asosiy) 10%, transparent);
+}
+
+.oyoq::after {
+  right: -90px;
+  top: -120px;
+  background: color-mix(in srgb, var(--asosiy-toq) 8%, transparent);
+}
+
+.oyoq-ichki {
+  position: relative;
+  z-index: 1;
+}
+
+.oyoq .oyoq-panjarasi {
+  grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(190px, 1fr));
+  gap: 18px;
+}
+
+.oyoq .oyoq-ustun {
+  min-height: 100%;
+  padding: 22px 20px;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--chiziq) 78%, rgba(15, 23, 42, 0.04));
+  background: color-mix(in srgb, var(--kartochka) 84%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.05);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
+}
+
+.oyoq .oyoq-ustun:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--grad-2) 34%, transparent);
+  box-shadow: 0 22px 50px color-mix(in srgb, var(--grad-2) 12%, rgba(15, 23, 42, 0.08));
+}
+
+.oyoq .oyoq-ustun strong {
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.oyoq .oyoq-ustun ul {
+  display: grid;
+  gap: 10px;
+}
+
+.oyoq .oyoq-ustun li {
+  line-height: 1.6;
+}
+
+.oyoq .oyoq-ustun a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--matn);
+  transition: color 0.24s ease, transform 0.24s ease;
+}
+
+.oyoq .oyoq-ustun a:hover {
+  color: var(--asosiy);
+  transform: translateX(3px);
+}
+
+.oyoq .oyoq-pastki {
+  margin-top: 22px;
+  padding: 18px 22px;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--chiziq) 78%, rgba(15, 23, 42, 0.04));
+  background: color-mix(in srgb, var(--kartochka) 88%, transparent);
+}
+
+html[data-mavzu='tungi'] .narx-karta,
+html[data-mavzu='tungi'] .faq-item {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(11, 17, 30, 0.98));
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+html[data-mavzu='tungi'] .narx-satri,
+html[data-mavzu='tungi'] .grant-tavsif,
+html[data-mavzu='tungi'] .oyoq .oyoq-ustun,
+html[data-mavzu='tungi'] .oyoq .oyoq-pastki {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-mavzu='tungi'] .oyoq .oyoq-ustun:hover {
+  border-color: color-mix(in srgb, var(--grad-2) 45%, rgba(255, 255, 255, 0.10));
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.34);
+}
+
+html[data-mavzu='tungi'] .narx-badge {
+  background: rgba(255, 171, 64, 0.14);
+  color: #ffd28f;
+}
+
+html[data-mavzu='tungi'] .narx-badge--grant {
+  background: rgba(39, 174, 96, 0.18);
+  color: #9ff1c8;
+}
+
+html[data-mavzu='tungi'] .grant-foizlar span {
+  color: #311a00;
+  border-color: color-mix(in srgb, var(--grad-3) 28%, rgba(255, 255, 255, 0.12));
+  background: linear-gradient(135deg, var(--grad-2) 0%, var(--grad-3) 100%);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.28);
+}
+
+html[data-mavzu='tungi'] .faq-belgi {
+  background: rgba(255, 171, 64, 0.12);
+  color: #ffd28f;
+}
+
+html[data-mavzu='tungi'] .faq-item.ochiq .faq-belgi {
+  background: var(--asosiy);
+  color: white;
+}
+
+html[data-mavzu='tungi'] .oyoq {
+  background: linear-gradient(180deg, rgba(7, 12, 22, 0.98) 0%, rgba(4, 8, 16, 1) 100%) !important;
+}
+
+@media (max-width: 1080px) {
+  .narx-grant-panjarasi,
+  .oyoq .oyoq-panjarasi {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .oyoq .oyoq-ustun:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 840px) {
+  .narx-grant-panjarasi,
+  .oyoq .oyoq-panjarasi {
+    grid-template-columns: 1fr;
+  }
+
+  .narx-karta,
+  .faq-item,
+  .oyoq .oyoq-ustun {
+    border-radius: 24px;
+  }
+
+  .faq-sarlavha {
+    padding: 20px 20px;
+  }
+
+  .faq-javob,
+  .faq-item.ochiq .faq-javob {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .narx-satri,
+  .grant-tavsif,
+  .narx-karta__past {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .narx-satri b {
+    font-size: 1.08rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .narx-karta {
+    padding: 20px;
+  }
+
+  .faq-belgi {
+    width: 46px;
+    height: 46px;
+  }
+
+  .grant-foizlar span {
+    min-width: calc(50% - 6px);
+  }
+
+  .oyoq .oyoq-pastki {
+    padding: 16px 18px;
+  }
+}
+
+
+/* === 2026-04-21 social link + faq contrast fix === */
+.faq-sarlavha {
+  color: var(--matn);
+}
+
+.faq-javob p {
+  color: var(--muted);
+}
+
+html[data-mavzu='tungi'] .faq-sarlavha {
+  color: #f8fafc;
+}
+
+html[data-mavzu='tungi'] .faq-javob p {
+  color: rgba(241, 245, 249, 0.82);
+}
+
+.oyoq .oyoq-ustun a[target='_blank'] {
+  position: relative;
+}
+
+.oyoq .oyoq-ustun a[target='_blank'] .fa-telegram,
+.oyoq .oyoq-ustun a[target='_blank'] .fa-instagram {
+  transition: transform 0.24s ease, filter 0.24s ease;
+}
+
+.oyoq .oyoq-ustun a[target='_blank']:hover .fa-telegram,
+.oyoq .oyoq-ustun a[target='_blank']:hover .fa-instagram {
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 12px rgba(255, 133, 0, 0.18));
+}
+
+
+/* === 2026-04-21 faq smooth + telegram/instagram handles + grant button polish === */
+.faq-item {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, border-color;
+}
+
+.faq-sarlavha {
+  transition: color 0.28s ease, background-color 0.28s ease;
+}
+
+.faq-javob {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  will-change: max-height, opacity, transform;
+  contain: layout paint;
+  transition:
+    max-height 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.44s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.26s ease,
+    transform 0.32s ease,
+    visibility 0s linear 0.44s;
+}
+
+.faq-item.ochiq .faq-javob {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s, 0s, 0.06s, 0.06s, 0s;
+}
+
+.aloqa-tugma,
+.toq-tugma,
+.grant-qabul-tugma {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, box-shadow, background-color, border-color;
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    filter 0.3s ease;
+}
+
+.aloqa-tugma:hover,
+.aloqa-tugma:focus-visible {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(224, 96, 32, 0.14);
+}
+
+.grant-qabul-tugma {
+  box-shadow: 0 16px 30px color-mix(in srgb, var(--grad-2) 28%, rgba(224, 96, 32, 0.16));
+}
+
+.grant-qabul-tugma:hover,
+.grant-qabul-tugma:focus-visible {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 22px 42px color-mix(in srgb, var(--grad-2) 30%, rgba(15, 23, 42, 0.16));
+  filter: saturate(1.06);
+}
+
+.grant-qabul-tugma:active,
+.aloqa-tugma:active {
+  transform: translateY(-1px) scale(0.995);
+}
+
+html[data-mavzu='tungi'] .grant-qabul-tugma {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-javob,
+  .aloqa-tugma,
+  .toq-tugma,
+  .grant-qabul-tugma {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* === 2026-04-21 faq fluid animation final === */
+.faq-javob {
+  height: 0;
+  max-height: none !important;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: visible;
+  contain: layout paint;
+  will-change: height, opacity, transform;
+  transition:
+    height 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.24s ease,
+    transform 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item.ochiq .faq-javob {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-javob-ichki {
+  padding: 0 26px 24px;
+}
+
+.faq-javob-ichki p {
+  margin: 0;
+}
+
+.faq-sarlavha {
+  cursor: pointer;
+}
+
+.faq-belgi {
+  box-shadow: 0 10px 24px rgba(224, 96, 32, 0.14);
+}
+
+@media (max-width: 840px) {
+  .faq-javob-ichki {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+
+/* ===== 2026-04 home slider stable media height fix ===== */
+.mazmun-slidery .yangilik-karta img,
+.mazmun-slidery .galereya-karta img,
+.mazmun-slidery .foto-katta-rasm,
+.mazmun-slidery .foto-galereya-track,
+.mazmun-slidery .mazmun-slidery-trek {
+  transition: height .42s cubic-bezier(.22, 1, .36, 1), transform .78s cubic-bezier(.22, 1, .36, 1);
+}
+
+.mazmun-slidery .foto-katta-slayd {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.mazmun-slidery .foto-katta-rasm {
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.mazmun-slidery .foto-katta-rasm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.mazmun-slidery .foto-katta-matn {
+  flex: 1 1 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mazmun-slidery .yangilik-karta img,
+  .mazmun-slidery .galereya-karta img,
+  .mazmun-slidery .foto-katta-rasm,
+  .mazmun-slidery .foto-galereya-track,
+  .mazmun-slidery .mazmun-slidery-trek {
+    transition: none !important;
+  }
+}
+
+
+/* ===== 2026-04 home slider image size compact fix ===== */
+.mazmun-slidery {
+  --home-slider-media-height: 250px;
+}
+
+.mazmun-slidery .yangilik-karta img,
+.mazmun-slidery .galereya-karta img,
+.mazmun-slidery .foto-katta-rasm,
+.mazmun-slidery .foto-katta-rasm img {
+  height: var(--home-slider-media-height) !important;
+  min-height: var(--home-slider-media-height) !important;
+  max-height: var(--home-slider-media-height) !important;
+}
+
+.mazmun-slidery .foto-katta-rasm img,
+.mazmun-slidery .yangilik-karta img,
+.mazmun-slidery .galereya-karta img {
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 1080px) {
+  .mazmun-slidery {
+    --home-slider-media-height: 230px;
+  }
+}
+
+@media (max-width: 840px) {
+  .mazmun-slidery {
+    --home-slider-media-height: 210px;
+  }
+}
+
+@media (max-width: 560px) {
+  .mazmun-slidery {
+    --home-slider-media-height: 180px;
+  }
+}
+
+
+/* === 2026-04-21 site content refresh: telegram + ielts/cefr + news/app blocks === */
+.sertifikat-bolim,
+.maxsus-yangilik-bolim,
+.ilova-bolim {
+  position: relative;
+}
+
+.ilova-bolim-panjarasi {
+  display: grid;
+  gap: 24px;
+}
+
+
+.sertifikat-panjarasi {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.sertifikat-karta,
+.yangilik-keng-karta,
+.yangilik-qisqa-karta,
+.ilova-qobiq {
+  background: var(--kartochka);
+  border: 1px solid var(--chiziq);
+  box-shadow: var(--soya);
+}
+
+.ilova-qobiq {
+  border: none;
+}
+
+.sertifikat-karta {
+  border-radius: 30px;
+  padding: 34px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 580px;
+}
+
+.sertifikat-karta::before,
+.yangilik-keng-karta::before,
+.ilova-qobiq::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, color-mix(in srgb, var(--grad-3) 18%, transparent), transparent 42%);
+  opacity: .9;
+}
+
+.sertifikat-karta--cefr::before {
+  background: radial-gradient(circle at top right, color-mix(in srgb, var(--grad-2) 18%, transparent), transparent 42%);
+}
+
+.sertifikat-karta > *,
+.yangilik-keng-karta > *,
+.ilova-qobiq > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sertifikat-karta h3,
+.ilova-matn h2 {
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+}
+
+.sertifikat-karta p,
+.yangilik-keng-karta p,
+.yangilik-qisqa-karta p,
+.ilova-matn p,
+.ilova-eslatma {
+  color: var(--matn-xira);
+}
+
+.sertifikat-karta__ust {
+  display: grid;
+  gap: 16px;
+}
+
+.sertifikat-karta p,
+.sertifikat-royxat li {
+  line-height: 1.8;
+}
+
+.sertifikat-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--grad-2) 16%, var(--kartochka));
+  border: 1px solid color-mix(in srgb, var(--grad-2) 24%, var(--chiziq));
+  color: var(--asosiy-toq);
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.sertifikat-badge--yorqin {
+  background: color-mix(in srgb, var(--grad-3) 18%, var(--kartochka));
+  border-color: color-mix(in srgb, var(--grad-3) 26%, var(--chiziq));
+}
+
+.sertifikat-royxat {
+  list-style: none;
+  display: grid;
+  gap: 16px;
+}
+
+.sertifikat-royxat li,
+.ilova-royxat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--matn);
+}
+
+.sertifikat-royxat i,
+.ilova-royxat-item i {
+  margin-top: 4px;
+  color: var(--asosiy);
+}
+
+.sertifikat-karta__past {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+.sertifikat-karta__past span {
+  color: var(--matn-xira);
+}
+
+.yangilik-keng-karta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, .7fr);
+  gap: 18px;
+}
+
+.yangilik-keng-karta__matn h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+}
+
+.yangilik-keng-karta__matn p + p {
+  margin-top: 12px;
+}
+
+.yangilik-chiplar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.yangilik-chiplar span {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 76%, var(--kartochka));
+  border: 1px solid color-mix(in srgb, var(--asosiy) 18%, var(--chiziq));
+  color: var(--matn);
+  font-weight: 600;
+}
+
+.yangilik-keng-karta__yon {
+  display: grid;
+  gap: 18px;
+}
+
+.yangilik-qisqa-karta {
+  border-radius: 24px;
+  padding: 22px;
+  background: color-mix(in srgb, var(--fon-uchinchi) 74%, var(--kartochka));
+}
+
+.yangilik-qisqa-karta strong {
+  display: block;
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+}
+
+.ilova-qobiq {
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(320px, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.ilova-qobiq--teskari .ilova-matn {
+  order: 1;
+}
+
+.ilova-qobiq--teskari .ilova-media {
+  order: 2;
+}
+
+.ilova-media {
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+
+.ilova-telefonlar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  align-items: start;
+  justify-items: center;
+}
+
+.ilova-telefon-karta {
+  width: 100%;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+}
+
+.ilova-telefon-karta--chap,
+.ilova-telefon-karta--ong {
+  transform: none;
+}
+
+.ilova-telefon-ramka {
+  width: min(100%, 240px);
+  aspect-ratio: 10 / 18;
+  border-radius: 36px;
+  padding: 16px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--grad-1) 70%, #ffffff 30%), color-mix(in srgb, var(--grad-2) 72%, #ffffff 28%));
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ilova-telefon-ramka img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 20px;
+}
+
+.ilova-telefon-tugma {
+  min-width: 148px;
+  justify-content: center;
+}
+
+.ilova-matn {
+  display: grid;
+  gap: 16px;
+}
+
+.ilova-royxat {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.ilova-royxat-item {
+  min-height: 100%;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: none;
+  background: color-mix(in srgb, var(--fon-uchinchi) 70%, var(--kartochka));
+}
+
+.ilova-tugmalar {
+  margin-top: 2px;
+}
+
+html[data-mavzu='tungi'] .sertifikat-badge,
+html[data-mavzu='tungi'] .sertifikat-badge--yorqin,
+html[data-mavzu='tungi'] .yangilik-chiplar span,
+html[data-mavzu='tungi'] .yangilik-qisqa-karta,
+html[data-mavzu='tungi'] .ilova-royxat-item {
+  color: var(--matn);
+}
+
+html[data-mavzu='tungi'] .ilova-telefon-ramka img {
+  background: rgba(15, 17, 23, 0.92);
+}
+
+@media (max-width: 1080px) {
+  .sertifikat-panjarasi,
+  .yangilik-keng-karta,
+  .ilova-qobiq,
+  .ilova-royxat {
+    grid-template-columns: 1fr;
+  }
+
+  .ilova-telefonlar {
+    grid-template-columns: 1fr;
+  }
+
+  .sertifikat-karta,
+  .yangilik-keng-karta,
+  .ilova-qobiq {
+    padding: 26px;
+  }
+
+  .yangilik-keng-karta__yon {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ilova-media {
+    order: 2;
+  }
+
+  .ilova-matn {
+    order: 1;
+  }
+}
+
+@media (max-width: 840px) {
+  .yangilik-keng-karta__yon,
+  .ilova-royxat,
+  .ilova-telefonlar {
+    grid-template-columns: 1fr;
+  }
+
+  .sertifikat-karta,
+  .yangilik-keng-karta,
+  .ilova-qobiq {
+    border-radius: 26px;
+    padding: 22px;
+  }
+
+  .ilova-telefon-karta--chap,
+  .ilova-telefon-karta--ong {
+    transform: none;
+  }
+
+  .ilova-telefon-ramka {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 560px) {
+  .sertifikat-karta,
+  .yangilik-keng-karta,
+  .ilova-qobiq,
+  .yangilik-qisqa-karta,
+  .ilova-royxat-item {
+    border-radius: 22px;
+  }
+
+  .sertifikat-karta {
+    min-height: auto;
+  }
+
+  .sertifikat-karta,
+  .yangilik-keng-karta,
+  .ilova-qobiq {
+    padding: 18px;
+  }
+
+  .sertifikat-karta__past {
+    align-items: stretch;
+  }
+
+  .sertifikat-karta__past .toq-tugma,
+  .sertifikat-karta__past .yorqin-tugma,
+  .ilova-tugmalar .toq-tugma,
+  .ilova-tugmalar .yorqin-tugma {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== 2026-04-22 targeted media cleanup ===== */
+html,
+body {
+  overflow-x: clip;
+}
+
+.konteyner,
+.qahramon-panjarasi,
+.ichki-qahramon-panjarasi,
+.uchlik-panjarasi,
+.tortlik-panjarasi,
+.ikkilik-panjarasi,
+.yangilik-panjarasi,
+.galereya-panjarasi,
+.dastur-panjarasi,
+.jamoa-panjarasi,
+.savol-panjarasi,
+.aloqa-panjarasi,
+.qadam-panjarasi,
+.bosqich-panjarasi,
+.qisqa-statlar,
+.ilova-qobiq,
+.yangilik-keng-karta,
+.sertifikat-karta,
+.jadval-qobiq,
+.mazmun-slidery {
+  max-width: 100%;
+}
+
+.ilova-telefon-karta--yakka {
+  width: 100%;
+  max-width: 260px;
+}
+
+@media (max-width: 1280px) {
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    gap: 24px;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 841px) and (max-width: 1280px) {
+  .qahramon-panjarasi,
+  .ichki-qahramon-panjarasi {
+    grid-template-columns: 1fr !important;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm {
+    margin-top: 18px;
+  }
+
+  .qisqa-statlar {
+    margin-bottom: 8px;
+  }
+
+  .ustma-bir {
+    top: 28px;
+    left: 18px;
+  }
+
+  .ustma-ikki {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
+@media (max-width: 1080px) {
+  .ilova-qobiq {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .ilova-media {
+    padding-top: 6px;
+  }
+}
+
+@media (max-width: 840px) {
+  .qahramon,
+  .ichki-qahramon,
+  .bolim {
+    padding-block: 28px;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm {
+    margin-top: 12px;
+  }
+
+  .ustma-karta {
+    position: static;
+    max-width: 100%;
+    margin-top: 16px;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 560px) {
+  .qahramon,
+  .ichki-qahramon,
+  .bolim {
+    padding-block: 22px;
+  }
+
+  .qahramon-rasm,
+  .ichki-qahramon-rasm {
+    margin-top: 10px;
+  }
+
+  .qisqa-statlar {
+    gap: 12px;
+  }
+
+  .qahramon-rasm .asosiy-rasm,
+  .ichki-qahramon-rasm img {
+    min-height: 260px;
+  }
+}
