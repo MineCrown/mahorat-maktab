@@ -5769,3 +5769,6 @@ body {
     min-height: 260px;
   }
 }
+html[data-mavzu='tungi'] .ilova-telefon-ramka {
+  background: linear-gradient(100deg, #ffffff, #1a1a22) !important;
+}

@@ -7,5 +7,7 @@
 			"path": ".git"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mahorat"
+	}
 }
