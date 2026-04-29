@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Marker+Hatch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --fon: #fffaf5;
@@ -4516,10 +4517,11 @@ body {
 }
 
 .oyoq-ustun h5{
-  font-family: "Rubik Marker Hatch", system-ui;
+  font-family: "Roboto", system-ui;
   color: var(--matn);
-  font-size: 24px;
-  padding: 20px;
+  font-size: 22px;
+  padding: 16px;
+  font-weight: 600;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -5774,4 +5776,538 @@ html[data-mavzu='tungi'] .ilova-telefon-ramka {
 }
 .sarlavha-belgisi{
   margin-top: 20px;
+}
+/* ===== Grand natijalari sahifasi + news CTA ===== */
+.yuklanish-ekrani {
+  z-index: 99999 !important;
+}
+
+.yuklanish-ekrani.yashirildi {
+  pointer-events: none;
+}
+
+.yangilik-cta-qator {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.yangilik-cta-qator .toq-tugma,
+.yangilik-cta-qator .yorqin-tugma,
+.grand-hero-tugmalar .toq-tugma,
+.grand-hero-tugmalar .yorqin-tugma {
+  gap: 10px;
+}
+
+.grand-natija-sahifa .ichki-qahramon {
+  padding: 62px 0 28px;
+}
+
+.grand-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.grand-hero::before,
+.grand-hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  filter: blur(4px);
+}
+
+.grand-hero::before {
+  width: 420px;
+  height: 420px;
+  right: -160px;
+  top: 8px;
+  background: color-mix(in srgb, var(--grad-3) 18%, transparent);
+}
+
+.grand-hero::after {
+  width: 300px;
+  height: 300px;
+  left: -120px;
+  bottom: -80px;
+  background: color-mix(in srgb, var(--grad-1) 14%, transparent);
+}
+
+.grand-hero-panjarasi {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(330px, .9fr);
+  gap: 26px;
+  align-items: stretch;
+}
+
+.grand-hero-matn,
+.grand-hero-karta,
+.grand-stat-karta,
+.grand-izoh-karta,
+.grand-jadval-qobiq {
+  border: 1px solid var(--chiziq);
+  background: color-mix(in srgb, var(--kartochka) 88%, transparent);
+  box-shadow: var(--soya);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.grand-hero-matn {
+  border-radius: 34px;
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.grand-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  color: var(--matn-xira);
+  font-weight: 700;
+  font-size: .95rem;
+}
+
+.grand-breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--asosiy);
+}
+
+.grand-breadcrumb strong {
+  color: var(--matn);
+}
+
+.grand-hero h1 {
+  width: min(760px, 100%);
+  font-size: clamp(2.45rem, 6vw, 5.2rem);
+  line-height: .98;
+  letter-spacing: -0.065em;
+  color: transparent;
+  background: linear-gradient(120deg, var(--grad-1), var(--grad-2), var(--grad-3), var(--grad-1));
+  background-size: 220% 220%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: rang-oqimi 6s ease infinite;
+}
+
+.grand-hero p {
+  width: min(710px, 100%);
+  margin-top: 20px;
+  color: var(--matn-xira);
+  font-size: 1.08rem;
+}
+
+.grand-hero-karta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 34px;
+  min-height: 390px;
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grand-hero-karta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 80% 10%, color-mix(in srgb, var(--grad-3) 30%, transparent), transparent 35%),
+    radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--grad-1) 18%, transparent), transparent 35%);
+}
+
+.grand-hero-karta > * {
+  position: relative;
+  z-index: 1;
+}
+
+.grand-kubok {
+  width: 82px;
+  height: 82px;
+  border-radius: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
+  color: white;
+  font-size: 2.1rem;
+  box-shadow: 0 22px 46px rgba(224, 96, 32, .28);
+}
+
+.grand-hero-karta span {
+  color: var(--matn-xira);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .85rem;
+}
+
+.grand-hero-karta strong {
+  margin-top: 6px;
+  font-size: clamp(4rem, 10vw, 7rem);
+  line-height: .9;
+  letter-spacing: -0.08em;
+  color: var(--matn);
+}
+
+.grand-hero-karta p {
+  margin-top: 18px;
+}
+
+.grand-mini-chiziq,
+.grand-progress {
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--asosiy) 12%, var(--fon-ikkinchi));
+}
+
+.grand-mini-chiziq {
+  width: 100%;
+  height: 12px;
+  margin-top: 24px;
+}
+
+.grand-mini-chiziq span,
+.grand-progress span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--grad-1), var(--grad-2), var(--grad-3));
+}
+
+.grand-stat-bolim {
+  padding-top: 28px;
+}
+
+.grand-stat-panjarasi,
+.grand-izoh-panjarasi {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grand-stat-karta {
+  min-height: 190px;
+  border-radius: 28px;
+  padding: 24px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  position: relative;
+  overflow: hidden;
+}
+
+.grand-stat-karta::after,
+.grand-izoh-karta::after {
+  content: '';
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  right: -36px;
+  top: -38px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--grad-3) 18%, transparent);
+  pointer-events: none;
+}
+
+.grand-stat-karta i,
+.grand-izoh-karta i {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 78%, var(--kartochka));
+  color: var(--asosiy);
+  font-size: 1.15rem;
+}
+
+.grand-stat-karta span {
+  color: var(--matn-xira);
+  font-weight: 700;
+}
+
+.grand-stat-karta strong {
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.grand-stat-karta p,
+.grand-izoh-karta p {
+  color: var(--matn-xira);
+}
+
+.grand-jadval-bolim {
+  padding-top: 34px;
+}
+
+.grand-jadval-qobiq {
+  border-radius: 30px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.grand-jadval {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+  background: transparent;
+}
+
+.grand-jadval th,
+.grand-jadval td {
+  text-align: left;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--chiziq);
+  vertical-align: middle;
+}
+
+.grand-jadval th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: color-mix(in srgb, var(--fon-uchinchi) 86%, var(--kartochka));
+  color: var(--matn);
+  font-size: .92rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.grand-jadval tr:last-child td {
+  border-bottom: none;
+}
+
+.grand-jadval tbody tr {
+  transition: background-color .22s ease, transform .22s ease;
+}
+
+.grand-jadval tbody tr:hover {
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 54%, transparent);
+}
+
+.grand-jadval td strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.grand-jadval td small {
+  display: block;
+  margin-top: 3px;
+  color: var(--matn-xira);
+}
+
+.birinchi-orin {
+  background: linear-gradient(90deg, color-mix(in srgb, var(--grad-3) 14%, transparent), transparent);
+}
+
+.orin-nishon {
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--chiziq);
+  background: var(--fon-ikkinchi);
+  color: var(--matn);
+  font-weight: 900;
+}
+
+.orin-nishon.oltin,
+.orin-nishon.kumush,
+.orin-nishon.bronza {
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, .14);
+}
+
+.orin-nishon.oltin {
+  background: linear-gradient(135deg, #ff9f1c, #ffd166);
+}
+
+.orin-nishon.kumush {
+  background: linear-gradient(135deg, #94a3b8, #e2e8f0);
+}
+
+.orin-nishon.bronza {
+  background: linear-gradient(135deg, #b45309, #f59e0b);
+}
+
+.foiz-belgi {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--asosiy-yumshoq) 82%, var(--kartochka));
+  color: var(--asosiy-toq);
+  font-weight: 900;
+}
+
+.grand-progress {
+  display: inline-block;
+  width: min(150px, 100%);
+  height: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.grand-jadval td b {
+  color: var(--matn);
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--fon-uchinchi) 76%, var(--kartochka));
+  border: 1px solid var(--chiziq);
+  color: var(--matn);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status-chip.status-yuqori {
+  background: linear-gradient(135deg, var(--grad-1), var(--grad-2));
+  color: white;
+  border-color: transparent;
+}
+
+.grand-izoh-panjarasi {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grand-izoh-karta {
+  position: relative;
+  overflow: hidden;
+  min-height: 230px;
+  border-radius: 28px;
+  padding: 28px;
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.grand-izoh-karta h3 {
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  line-height: 1.2;
+}
+
+html[data-mavzu='tungi'] .grand-hero-matn,
+html[data-mavzu='tungi'] .grand-hero-karta,
+html[data-mavzu='tungi'] .grand-stat-karta,
+html[data-mavzu='tungi'] .grand-izoh-karta,
+html[data-mavzu='tungi'] .grand-jadval-qobiq {
+  background: color-mix(in srgb, var(--kartochka) 88%, transparent);
+  border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-mavzu='tungi'] .grand-jadval th {
+  background: color-mix(in srgb, var(--fon-uchinchi) 74%, #0f1117);
+}
+
+html[data-mavzu='tungi'] .orin-nishon:not(.oltin):not(.kumush):not(.bronza),
+html[data-mavzu='tungi'] .status-chip {
+  background: color-mix(in srgb, var(--fon-uchinchi) 80%, #0f1117);
+}
+
+@media (max-width: 1180px) {
+  .grand-hero-panjarasi,
+  .grand-stat-panjarasi {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grand-hero-matn {
+    grid-column: 1 / -1;
+  }
+
+  .grand-hero-karta {
+    min-height: 310px;
+  }
+}
+
+@media (max-width: 840px) {
+  .grand-natija-sahifa .ichki-qahramon {
+    padding: 36px 0 20px;
+  }
+
+  .grand-hero-panjarasi,
+  .grand-stat-panjarasi,
+  .grand-izoh-panjarasi {
+    grid-template-columns: 1fr;
+  }
+
+  .grand-hero-matn,
+  .grand-hero-karta,
+  .grand-stat-karta,
+  .grand-izoh-karta,
+  .grand-jadval-qobiq {
+    border-radius: 24px;
+  }
+
+  .grand-hero-matn,
+  .grand-hero-karta,
+  .grand-stat-karta,
+  .grand-izoh-karta {
+    padding: 22px;
+  }
+
+  .grand-hero-karta strong {
+    font-size: clamp(3.4rem, 22vw, 5.8rem);
+  }
+
+  .grand-jadval th,
+  .grand-jadval td {
+    padding: 15px 16px;
+  }
+
+  .yangilik-cta-qator .toq-tugma,
+  .yangilik-cta-qator .yorqin-tugma,
+  .grand-hero-tugmalar .toq-tugma,
+  .grand-hero-tugmalar .yorqin-tugma {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .grand-breadcrumb {
+    font-size: .88rem;
+  }
+
+  .grand-hero h1 {
+    letter-spacing: -0.05em;
+  }
+
+  .grand-jadval {
+    min-width: 880px;
+  }
+
+  .grand-progress {
+    width: 110px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .grand-hero-panjarasi {
+    grid-template-columns: 1fr;
+  }
+
+  .grand-hero-matn,
+  .grand-hero-karta {
+    grid-column: 1 / -1;
+  }
 }
